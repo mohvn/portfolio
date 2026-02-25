@@ -10,6 +10,7 @@ export interface ExperienceEntry {
 export interface ProjectEntry {
   title: string;
   description: string;
+  longDescription: readonly string[];
 }
 
 export interface Translations {
@@ -28,6 +29,7 @@ export interface Translations {
     freelancer: ExperienceEntry;
   };
   projects: {
+    rastreio: ProjectEntry;
     ovni: ProjectEntry;
     sttp: ProjectEntry;
     caddie: ProjectEntry;

@@ -76,6 +76,7 @@ const projectSlugToHref: Record<string, string> = {
   "another-project": "/projects/another-project",
   "gestao-lojao-do-bras": "/projects/gestao-lojao-do-bras",
   "sds-wiki": "/projects/sds-wiki",
+  rastreio: "/projects/rastreio",
 };
 
 const projectSlugToScreenshot: Record<string, string> = {
@@ -85,6 +86,7 @@ const projectSlugToScreenshot: Record<string, string> = {
   "another-project": "/static/images/sistemaabelha.png",
   "gestao-lojao-do-bras": "/static/images/lojaodobras.png",
   "sds-wiki": "/static/images/sds.png",
+  rastreio: "/static/images/rastreio.png",
 };
 
 const projectSlugToStatus: Record<string, "building" | "live" | "comingSoon" | "private"> = {
@@ -94,9 +96,11 @@ const projectSlugToStatus: Record<string, "building" | "live" | "comingSoon" | "
   "another-project": "live",
   "gestao-lojao-do-bras": "private",
   "sds-wiki": "live",
+  rastreio: "building",
 };
 
 const projectOrder = [
+  "rastreio",
   "ovni",
   "sttp",
   "caddie",
@@ -197,7 +201,7 @@ export default async function LocalePage({
             key={slug}
             title={t.projects[slug].title}
             description={t.projects[slug].description}
-            href={projectSlugToHref[slug] ?? "#"}
+            href={`/${locale}${projectSlugToHref[slug] ?? "#"}`}
             status={projectSlugToStatus[slug] ?? "live"}
             screenshot={assetPath(projectSlugToScreenshot[slug] ?? "")}
             comingSoon={false}
