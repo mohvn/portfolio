@@ -37,7 +37,7 @@ export const en = {
     botslab: {
       company: "Botslab",
       role: "Python RPA Developer",
-      period: "Dec, 2024 - Present",
+      period: "Dec, 2024 - Feb, 2026",
       location: "São Paulo, Brazil - Remote",
       descriptions: [
         "Automated third-party systems (McCain, SMSGroup) in Nimbi and Mercado Eletrônico platforms using RPA.",

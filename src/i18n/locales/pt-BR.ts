@@ -37,7 +37,7 @@ export const ptBR = {
     botslab: {
       company: "Botslab",
       role: "Desenvolvedor RPA Python",
-      period: "Dez, 2024 - Atual",
+      period: "Dez, 2024 - Fev, 2026",
       location: "São Paulo, Brasil - Remoto",
       descriptions: [
         "Automatizei sistemas de terceiros (McCain, SMSGroup) nas plataformas Nimbi e Mercado Eletrônico com RPA.",
