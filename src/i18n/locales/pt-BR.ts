@@ -121,7 +121,7 @@ export const ptBR = {
       ],
     },
     rastreio: {
-      title: "Rastreio",
+      title: "Rastreio.net",
       description:
         "Aplicativo para gerenciamento de rastreio para ecommerce.",
       longDescription: [

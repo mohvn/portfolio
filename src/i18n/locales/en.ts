@@ -121,7 +121,7 @@ export const en = {
       ],
     },
     rastreio: {
-      title: "Rastreio",
+      title: "Rastreio.net",
       description:
         "App for tracking management for ecommerce.",
       longDescription: [
