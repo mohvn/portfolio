@@ -16,7 +16,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "rastreio",
-    title: "Rastreio",
+    title: "Rastreio.net",
     description: "Aplicativo para gerenciamento de rastreio para ecommerce.",
     longDescription: [
       "Rastreio é um aplicativo para gerenciamento de rastreio voltado a lojas e operações de ecommerce.",
