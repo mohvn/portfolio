@@ -15,6 +15,24 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "py013",
+    title: "Py013",
+    description: "Landing page da comunidade Python da Baixada Santista.",
+    longDescription: [
+      "Landing page da Py013, comunidade Python da Baixada Santista. Organização sem fins lucrativos dedicada ao ensino colaborativo de tecnologia e programação desde 2018.",
+      "O site apresenta a comunidade, seus princípios (sem fins lucrativos, eventos online e presenciais, inovação na colaboração), impactos na região e convida à participação em eventos como CodeDojo e Open Data Day.",
+      "Desenvolvido com Next.js e Tailwind para uma experiência rápida e responsiva, alinhada à identidade da comunidade.",
+    ],
+    screenshot: "/static/images/py013.png",
+    github: undefined,
+    website: "https://www.py013.com.br/",
+    status: "live",
+    stack: [
+      { name: "Next.js", href: "https://www.google.com/search?q=Next.js" },
+      { name: "Tailwind", href: "https://www.google.com/search?q=Tailwind" },
+    ],
+  },
+  {
     slug: "rastreio",
     title: "Rastreio.net",
     description: "Aplicativo para gerenciamento de rastreio para ecommerce.",
@@ -159,6 +177,7 @@ export const projects: Project[] = [
       { name: "Tailwind", href: "https://tailwindcss.com" },
     ],
   },
+
 
 ];
 

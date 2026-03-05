@@ -36,6 +36,7 @@ export interface Translations {
     "another-project": ProjectEntry;
     "gestao-lojao-do-bras": ProjectEntry;
     "sds-wiki": ProjectEntry;
+    py013: ProjectEntry;
   };
   status: {
     building: string;

@@ -130,6 +130,15 @@ export const en = {
         "The project is actively in development, with a focus on integration with marketplaces and carriers and a simple day-to-day experience for operators.",
       ],
     },
+    py013: {
+      title: "Py013",
+      description: "Landing page for the Python community of Baixada Santista.",
+      longDescription: [
+        "Landing page for Py013, the Python community of Baixada Santista. A nonprofit organization dedicated to collaborative tech and programming education since 2018.",
+        "The site presents the community, its principles (nonprofit, online and in-person events, innovation through collaboration), impact in the region, and invites participation in events such as CodeDojo and Open Data Day.",
+        "Built with Next.js and Tailwind for a fast, responsive experience aligned with the community's identity.",
+      ],
+    },
   },
   status: {
     building: "Building",

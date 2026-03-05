@@ -77,6 +77,7 @@ const projectSlugToHref: Record<string, string> = {
   "gestao-lojao-do-bras": "/projects/gestao-lojao-do-bras",
   "sds-wiki": "/projects/sds-wiki",
   rastreio: "/projects/rastreio",
+  py013: "/projects/py013",
 };
 
 const projectSlugToScreenshot: Record<string, string> = {
@@ -87,6 +88,7 @@ const projectSlugToScreenshot: Record<string, string> = {
   "gestao-lojao-do-bras": "/static/images/lojaodobras.png",
   "sds-wiki": "/static/images/sds.png",
   rastreio: "/static/images/rastreio.png",
+  py013: "/static/images/py013.png",
 };
 
 const projectSlugToStatus: Record<string, "building" | "live" | "comingSoon" | "private"> = {
@@ -97,9 +99,11 @@ const projectSlugToStatus: Record<string, "building" | "live" | "comingSoon" | "
   "gestao-lojao-do-bras": "private",
   "sds-wiki": "live",
   rastreio: "building",
+  py013: "live",
 };
 
 const projectOrder = [
+  "py013",
   "rastreio",
   "ovni",
   "sttp",
