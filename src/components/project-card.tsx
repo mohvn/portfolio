@@ -109,15 +109,7 @@ export function ProjectCard({
         </div>
       </Link>
       <div className="block md:hidden">
-        <div
-          className="w-full h-px"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(to right, #CBCCCC 0px, #CBCCCC 6px, transparent 6px, transparent 14px)",
-            backgroundSize: "100% 1px",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
+        <div className="h-px w-full bg-border" />
       </div>
     </div>
   );

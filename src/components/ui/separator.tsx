@@ -10,18 +10,11 @@ function Separator({
   return (
     <SeparatorPrimitive
       className={cn(
-        "shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px data-[orientation=vertical]:h-full",
+        "shrink-0 bg-border data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px",
         className,
       )}
       data-slot="separator"
       orientation={orientation}
-      style={{
-        backgroundImage: orientation === "horizontal"
-          ? "repeating-linear-gradient(to right, hsl(var(--border)) 0px, hsl(var(--border)) 6px, transparent 6px, transparent 14px)"
-          : "repeating-linear-gradient(to bottom, hsl(var(--border)) 0px, hsl(var(--border)) 6px, transparent 6px, transparent 14px)",
-        backgroundSize: orientation === "horizontal" ? "100% 1px" : "1px 100%",
-        backgroundRepeat: "no-repeat",
-      }}
       {...props}
     />
   );

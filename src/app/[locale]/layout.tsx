@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
-import { isValidLocale, type Locale } from "@/i18n";
 import { LangSync } from "@/components/lang-sync";
+import { Navbar } from "@/components/navbar";
+import { isValidLocale, type Locale } from "@/i18n";
 
 export default function LocaleLayout({
   children,
@@ -16,7 +17,10 @@ export default function LocaleLayout({
   return (
     <>
       <LangSync locale={locale as Locale} />
-      {children}
+      <Navbar locale={locale as Locale} />
+      <div className="mx-auto w-full max-w-[700px]">
+        {children}
+      </div>
     </>
   );
 }

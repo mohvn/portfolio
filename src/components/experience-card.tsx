@@ -29,7 +29,7 @@ export function ExperienceCard({
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="flex flex-col gap-2 dashed-border dashed-border-no-top p-4">
+    <div className="flex flex-col gap-2 border-t border-border p-4">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full cursor-pointer"

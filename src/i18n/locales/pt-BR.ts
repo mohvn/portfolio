@@ -20,6 +20,11 @@ export const ptBR = {
     projects: "Projetos",
     skills: "Habilidades e Tecnologias",
   },
+  nav: {
+    experiences: "Experiências",
+    projects: "Projetos",
+    skills: "Habilidades",
+  },
   experiences: {
     empreender: {
       company: "Empreender | Soluções para ecommerce",
@@ -149,6 +154,19 @@ export const ptBR = {
   quote: {
     text: "Trabalhe tanto que seria irracional você não ter sucesso.",
     author: "Alex Hormozi",
+  },
+  contact: {
+    roles: [
+      {
+        label: "Desenvolvedor Frontend",
+        company: "Empreender",
+        href: "#experiences",
+        icon: "code",
+      },
+    ],
+    location: "São Paulo, Brasil",
+    locationHref:
+      "https://www.google.com/maps/search/?api=1&query=São+Paulo,+Brasil",
   },
 } as const;
 

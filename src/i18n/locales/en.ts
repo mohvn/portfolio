@@ -20,6 +20,11 @@ export const en = {
     projects: "Projects",
     skills: "Skills and Technologies",
   },
+  nav: {
+    experiences: "Experiences",
+    projects: "Projects",
+    skills: "Skills",
+  },
   experiences: {
     empreender: {
       company: "Empreender | Soluções para ecommerce",
@@ -149,6 +154,19 @@ export const en = {
   quote: {
     text: "Do so much work that it would be unreasonable for you to not be successful.",
     author: "Alex Hormozi",
+  },
+  contact: {
+    roles: [
+      {
+        label: "Frontend Developer",
+        company: "Empreender",
+        href: "#experiences",
+        icon: "code",
+      },
+    ],
+    location: "São Paulo, Brazil",
+    locationHref:
+      "https://www.google.com/maps/search/?api=1&query=São+Paulo,+Brazil",
   },
 } as const;
 

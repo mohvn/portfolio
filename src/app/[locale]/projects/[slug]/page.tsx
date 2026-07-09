@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { ChevronLeft, ExternalLink, FileText, Github, Globe } from "lucide-react";
 import { getProjectBySlug, projects, type ProjectStatus } from "@/lib/projects";
 import { assetPath } from "@/lib/base-path";
-import { DotPattern } from "@/components/ui/dot-pattern";
 import { getTranslations, isValidLocale, locales, type Locale } from "@/i18n";
 
 export function generateStaticParams() {
@@ -13,11 +12,6 @@ export function generateStaticParams() {
   );
 }
 
-const dashedVerticalDividerStyle = {
-  backgroundImage: `repeating-linear-gradient(to bottom, #CBCCCC 0px, #CBCCCC 6px, transparent 6px, transparent 14px)`,
-  backgroundSize: "1px 100%",
-  backgroundRepeat: "no-repeat",
-};
 
 const statusConfig: Record<
   ProjectStatus,
@@ -68,17 +62,10 @@ export default async function ProjectPage({
   const config = statusConfig[project.status];
 
   return (
-    <main className="flex flex-col min-h-[100dvh] text-[#333333] dashed-border-no-top overflow-x-hidden">
-      <div className="relative flex flex-col gap-4 h-40 overflow-hidden dashed-border-dots">
-        <div className="absolute inset-0 -z-10">
-          <DotPattern width={8} height={8} className="absolute top-0 left-0 w-full h-full opacity-50 pointer-events-none text-neutral-400/80" />
-        </div>
-        <div className="dashed-border-vertical-lines-overlay" aria-hidden />
-      </div>
-
+    <main className="flex min-h-[100dvh] flex-col overflow-x-hidden border-x border-border text-foreground">
       <div className="flex flex-1 flex-col min-h-0">
         {/* Header */}
-        <div className="flex gap-2 dashed-border p-4">
+        <div className="flex gap-2 border-t border-border p-4">
           <Link
             href={`/${locale}/#projects`}
             className="relative z-10 cursor-pointer p-1 border border-transparent hover:border-gray-300 rounded-[6px] hover:bg-gray-100 transition-colors duration-300"
@@ -92,7 +79,7 @@ export default async function ProjectPage({
         </div>
 
         {/* Image */}
-        <div className="flex flex-col gap-2 dashed-border dashed-border-no-top p-4">
+        <div className="flex flex-col gap-2 border-t border-border p-4">
           <div className="w-full">
             <div className="w-full h-full md:min-h-[340px] min-h-[200px] rounded-[12px] relative border border-gray-300 p-[4px] overflow-hidden">
               {project.buildingGif ? (
@@ -119,7 +106,7 @@ export default async function ProjectPage({
         </div>
 
         {/* Links row */}
-        <div className="flex flex-col gap-2 dashed-border dashed-border-no-top p-4">
+        <div className="flex flex-col gap-2 border-t border-border p-4">
           <div className="flex items-stretch justify-between w-full">
             {project.github ? (
               <a
@@ -142,7 +129,7 @@ export default async function ProjectPage({
               </div>
             )}
 
-            <div className="self-stretch" style={dashedVerticalDividerStyle} />
+            <div className="w-px self-stretch bg-border" />
 
             {project.website ? (
               <a
@@ -165,7 +152,7 @@ export default async function ProjectPage({
               </div>
             )}
 
-            <div className="self-stretch" style={dashedVerticalDividerStyle} />
+            <div className="w-px self-stretch bg-border" />
 
             <div className="py-[11px] flex text-[1.05rem] text-gray-400 opacity-40 w-full items-center justify-center cursor-not-allowed select-none">
               <FileText className="w-[15px] h-[15px] shrink-0" />
@@ -175,7 +162,7 @@ export default async function ProjectPage({
         </div>
 
         {/* Title, status, description */}
-        <div className="flex flex-col gap-2 dashed-border dashed-border-no-top p-4">
+        <div className="flex flex-col gap-2 border-t border-border p-4">
           <div className="flex flex-col w-full gap-1.5">
             <div className="flex items-center justify-between">
               <h1 className="text-[1.40rem] font-bold leading-tight text-gray-900">
@@ -218,7 +205,7 @@ export default async function ProjectPage({
         </div>
 
         {/* Stack used */}
-        <div className="flex flex-col gap-2 dashed-border dashed-border-no-top p-4">
+        <div className="flex flex-col gap-2 border-t border-border p-4">
           <div className="flex font-semibold text-gray-900 flex-col gap-2.5 w-full">
             <h2 className="text-base font-bold">Stack used</h2>
             <div className="flex flex-wrap items-center gap-1.5">
@@ -248,12 +235,6 @@ export default async function ProjectPage({
           </div>
         </div>
 
-      </div>
-
-      <div className="relative flex flex-col gap-4 h-40 overflow-hidden mt-auto shrink-0 dashed-border-dots dashed-border">
-        <div className="absolute inset-0 -z-10">
-          <DotPattern width={8} height={8} className="absolute top-0 left-0 w-full h-full opacity-50 pointer-events-none text-neutral-400/80" />
-        </div>
       </div>
     </main>
   );

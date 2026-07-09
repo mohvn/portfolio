@@ -1,33 +1,87 @@
-import { Badge } from "@/components/ui/badge";
-import { MdiGithub } from "@/components/icons/github";
-import { RiLinkedinFill } from "@/components/icons/linkedin";
+import {
+  Clock,
+  CodeXml,
+  Link as LinkIcon,
+  Mail,
+  MapPin,
+} from "lucide-react";
+import { CopyButton } from "@/components/copy-button";
+import { LocalTime } from "@/components/local-time";
+import { SocialInfoItem } from "@/components/social-info-item";
+import { getTranslations, type Locale } from "@/i18n";
+import { CONTACT } from "@/lib/contact";
 
-export function Socials() {
+export function Socials({ locale }: { locale: Locale }) {
+  const t = getTranslations(locale);
+
   return (
-    <div className="flex gap-2">
-      <a
-        href="https://github.com/mohvn"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block"
+    <div className="-mx-4">
+      <div
+        data-slot="panel-body"
+        className="grid gap-x-4 gap-y-2.5 p-4 sm:grid-cols-2"
       >
-        <Badge className="bg-[#F2F2F2] text-[#333333] p-1 cursor-pointer hover:bg-[#E5E5E5] transition-colors">
-          <MdiGithub className="size-5" />
-          <p className="text-sm">GitHub</p>
-        </Badge>
-      </a>
+        {t.contact.roles.map((role) => (
+          <SocialInfoItem
+            key={`${role.label}-${role.company}`}
+            icon={CodeXml}
+            className="sm:col-span-2"
+          >
+            <p className="text-balance">
+              {role.label}{" "}
+              <span aria-label="at">@</span>
+              <a className="link ml-0.5 font-medium" href={role.href}>
+                {role.company}
+              </a>
+            </p>
+          </SocialInfoItem>
+        ))}
 
-      <a
-        href="https://linkedin.com/in/mohanelias"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block"
-      >
-        <Badge className="bg-[#F2F2F2] text-[#333333] p-1 cursor-pointer hover:bg-[#E5E5E5] transition-colors">
-          <RiLinkedinFill className="size-5" />
-          <p className="text-sm">LinkedIn</p>
-        </Badge>
-      </a>
+        <SocialInfoItem icon={MapPin}>
+          <p className="text-balance">
+            <a
+              className="link"
+              href={t.contact.locationHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Location: ${t.contact.location}`}
+            >
+              {t.contact.location}
+            </a>
+          </p>
+        </SocialInfoItem>
+
+        <SocialInfoItem icon={Clock}>
+          <LocalTime timezone={CONTACT.timezone} />
+        </SocialInfoItem>
+
+        <SocialInfoItem icon={Mail} className="group">
+          <p className="flex text-balance">
+            <a
+              className="link"
+              href={`mailto:${CONTACT.email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {CONTACT.email}
+            </a>
+          </p>
+          <CopyButton value={CONTACT.email} />
+        </SocialInfoItem>
+
+        <SocialInfoItem icon={LinkIcon}>
+          <p className="text-balance">
+            <a
+              className="link"
+              href={CONTACT.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Personal website: ${CONTACT.websiteLabel}`}
+            >
+              {CONTACT.websiteLabel}
+            </a>
+          </p>
+        </SocialInfoItem>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { WordRotate } from "@/components/ui/word-rotate";
+import { HeroGrid } from "@/components/hero-grid";
 import { Socials } from "@/components/socials";
+import { SocialLinks } from "@/components/social-links";
 import { GitHubActivityCalendar } from "@/components/github-activity-calendar";
 import { DotPattern } from "@/components/ui/dot-pattern";
 import { QuoteIcon } from "@/components/icons/quote";
@@ -125,42 +125,31 @@ export default async function LocalePage({
   const t = getTranslations(locale as Locale);
 
   return (
-    <main className="flex flex-col min-h-[100dvh] text-[#333333] dashed-border-no-top overflow-x-hidden">
-      <div className="relative flex flex-col gap-4 h-40 overflow-hidden  dashed-border-dots">
-        <div className="absolute inset-0 -z-10">
-          <DotPattern width={8} height={8} className="absolute top-0 left-0 w-full h-full opacity-50 pointer-events-none text-neutral-400/80" />
-        </div>
-        <div className="dashed-border-vertical-lines-overlay" aria-hidden />
-      </div>
-      <div className="flex gap-2 dashed-border p-4">
-        <Avatar className="size-24 rounded-lg ring-1 ring-gray-300 border-[3px] border-white">
-          <AvatarImage src="https://github.com/mohvn.png" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
-        <div className="flex flex-col justify-end py-2">
-          <h1 className="text-2xl font-bold">{t.hero.name}</h1>
-          <WordRotate
-            words={[...t.hero.roles]}
-            className="text-sm text-gray-500"
-          />
-        </div>
+    <main className="flex min-h-[100dvh] flex-col overflow-x-hidden border-x border-border text-foreground">
+      <HeroGrid
+        name={t.hero.name}
+        roles={t.hero.roles}
+        avatarSrc="https://github.com/mohvn.png"
+      />
+
+      <div className="flex flex-col border-border p-4">
+        <Socials locale={locale as Locale} />
       </div>
 
-      <div className="flex flex-col gap-2 dashed-border dashed-border-no-top p-4">
-        <p>{t.bio.paragraph1}</p>
-        <p>{t.bio.paragraph2}</p>
-        <p>
-          {t.bio.socialsLabel}{" "}
-          <span className="font-bold">{t.bio.socialsBold}</span>
-        </p>
-        <Socials />
+      <div className="border-t border-border p-4">
+        <SocialLinks />
       </div>
 
-      <div className="flex flex-col gap-2 dashed-border dashed-border-no-top p-4 items-center">
+      <div className="flex flex-col items-center gap-2 border-t border-border p-4">
         <GitHubActivityCalendar username="mohvn" />
       </div>
 
-      <div className="flex flex-col gap-2 dashed-border dashed-border-no-top p-4">
+      <div className="flex flex-col gap-3 border-t border-border p-4 text-muted-foreground">
+        <p>{t.bio.paragraph1}</p>
+        <p>{t.bio.paragraph2}</p>
+      </div>
+
+      <div id="experiences" className="flex scroll-mt-[var(--header-height)] flex-col gap-2 border-t border-border p-4">
         <p className="text-lg font-bold">{t.sections.experiences}</p>
       </div>
 
@@ -195,11 +184,11 @@ export default async function LocalePage({
         technologies={[...t.experiences.freelancer.technologies]}
       />
 
-      <div id="projects" className="flex flex-col gap-2 dashed-border dashed-border-no-top p-4">
+      <div id="projects" className="flex scroll-mt-[var(--header-height)] flex-col gap-2 border-t border-border p-4">
         <p className="text-lg font-bold">{t.sections.projects}</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-0 dashed-border dashed-border-no-top">
+      <div className="grid grid-cols-1 gap-0 divide-y divide-border border-t border-border md:grid-cols-2 md:divide-x md:divide-y-0">
         {projectOrder.map((slug) => (
           <ProjectCard
             key={slug}
@@ -214,11 +203,11 @@ export default async function LocalePage({
         ))}
       </div>
 
-      <div id="projects" className="flex flex-col gap-2 dashed-border dashed-border-no-top p-4">
+      <div id="skills" className="flex scroll-mt-[var(--header-height)] flex-col gap-2 border-t border-border p-4">
         <p className="text-lg font-bold">{t.sections.skills}</p>
       </div>
 
-      <div className="flex flex-col gap-2 p-4 dashed-border dashed-border-no-top">
+      <div className="flex flex-col gap-2 border-t border-border p-4">
         <div className="max-w-[690px] mx-2 sm:mx-8 md:mx-auto relative p-3">
           <div className="flex flex-wrap items-center justify-center gap-[8px]">
             {skillsWithIcons.map(({ name, href, Icon }) => (
@@ -237,7 +226,7 @@ export default async function LocalePage({
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 p-4 dashed-border dashed-border-no-top">
+      <div className="flex flex-col gap-2 border-t border-border p-4">
         <div className="max-w-[690px] mx-auto relative p-3 py-4 sm:py-6 flex flex-col items-center text-center">
           <QuoteIcon
             className="sm:text-4xl text-3xl text-gray-300 mb-4 sm:mb-6 shrink-0 size-6 sm:size-10"
