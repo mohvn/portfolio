@@ -283,7 +283,7 @@ export function GitHubActivityCalendar({ username = "mohvn" }: GitHubActivityCal
                             }}
                           />
                         </TooltipTrigger>
-                        <TooltipContent className="!bg-[#101010] !text-white !border-gray-800/20 flex gap-2 p-2 w-full">
+                        <TooltipContent className="flex w-full gap-2 border border-border bg-popover p-2 text-popover-foreground">
                           <span className="text-xs">{day.count} contributions on {day.date}</span>
                         </TooltipContent>
                       </Tooltip>

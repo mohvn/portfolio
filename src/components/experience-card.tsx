@@ -35,26 +35,26 @@ export function ExperienceCard({
         className="w-full cursor-pointer"
       >
         <div className="flex items-center gap-2 w-full">
-          <Avatar className="size-12 rounded-lg ring-1 ring-gray-300 border-[3px] border-white flex-shrink-0">
+          <Avatar className="size-12 rounded-lg ring-1 ring-border border-[3px] border-background flex-shrink-0">
             <AvatarImage src={logo} />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
 
           <div className="flex flex-col min-w-0 flex-1 items-start">
             <p className="text-lg font-bold break-words">{company}</p>
-            <p className="text-sm text-gray-500">{role}</p>
+            <p className="text-sm text-muted-foreground">{role}</p>
           </div>
 
           <div className="flex items-center gap-2 flex-shrink-0">
             <div className="flex flex-col items-end gap-2">
-              <p className="text-gray-800 text-sm font-medium whitespace-nowrap">{period}</p>
-              <p className="text-gray-500 text-sm whitespace-nowrap">{location}</p>
+              <p className="text-foreground text-sm font-medium whitespace-nowrap">{period}</p>
+              <p className="text-muted-foreground text-sm whitespace-nowrap">{location}</p>
             </div>
             <motion.div
               animate={{ rotate: isOpen ? 180 : 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <ChevronDown className="size-5 text-gray-500 flex-shrink-0" />
+              <ChevronDown className="size-5 text-muted-foreground flex-shrink-0" />
             </motion.div>
           </div>
         </div>
@@ -77,7 +77,7 @@ export function ExperienceCard({
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.2, delay: index * 0.05 }}
-                    className="text-gray-700 text-sm"
+                    className="text-muted-foreground text-sm"
                   >
                     {description}
                   </motion.p>
@@ -92,7 +92,7 @@ export function ExperienceCard({
                 {technologies.map((tech, index) => (
                   <p
                     key={index}
-                    className="text-gray-800 p-1 border border-gray-300 rounded-md text-xs whitespace-nowrap"
+                    className="text-foreground p-1 border border-border rounded-md text-xs whitespace-nowrap"
                   >
                     {tech}
                   </p>

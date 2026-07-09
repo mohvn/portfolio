@@ -22,6 +22,7 @@ import { SolarFigmaBold } from "@/components/icons/figma";
 import { UilLinux } from "@/components/icons/linux";
 import { ExperienceCard } from "@/components/experience-card";
 import { ProjectCard } from "@/components/project-card";
+import { SectionLinkButton } from "@/components/section-link-button";
 import { getTranslations, isValidLocale, locales, type Locale } from "@/i18n";
 import { assetPath } from "@/lib/base-path";
 import type { Metadata } from "next";
@@ -203,46 +204,124 @@ export default async function LocalePage({
         ))}
       </div>
 
-      <div id="skills" className="flex scroll-mt-[var(--header-height)] flex-col gap-2 border-t border-border p-4">
-        <p className="text-lg font-bold">{t.sections.skills}</p>
-      </div>
+      <section
+        data-slot="panel"
+        className="screen-line-top screen-line-bottom border-t border-border"
+        id="skills"
+      >
+        <header data-slot="panel-header" className="screen-line-bottom px-4">
+          <h2
+            data-slot="panel-title"
+            className="group/panel-title relative text-3xl font-medium tracking-tight text-balance py-4"
+          >
+            <a href="#skills">{t.sections.skills}</a>
+            <SectionLinkButton href="#skills" />
+          </h2>
+        </header>
 
-      <div className="flex flex-col gap-2 border-t border-border p-4">
-        <div className="max-w-[690px] mx-2 sm:mx-8 md:mx-auto relative p-3">
-          <div className="flex flex-wrap items-center justify-center gap-[8px]">
-            {skillsWithIcons.map(({ name, href, Icon }) => (
-              <a
-                key={name}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative w-fit min-w-fit flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-[8px] border border-gray-300 bg-transparent text-gray-500 px-2 py-1 transition-all duration-300 hover:text-gray-700 hover:border-gray-500 hover:bg-gray-50 select-none"
-              >
-                <Icon className="size-4 shrink-0" aria-hidden />
-                <span className="text-sm font-medium whitespace-nowrap">{name}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
+        {(() => {
+          const groups = [
+            {
+              id: "language",
+              label: "Language",
+              items: ["TypeScript", "JavaScript", "Python", "PHP"],
+            },
+            {
+              id: "frontend",
+              label: "Frontend",
+              items: ["React", "Next.js", "Tailwind", "Astro"],
+            },
+            {
+              id: "tools",
+              label: "Tools",
+              items: ["Figma", "Postman", "Git", "Github", "Linux", "Node", "Bun"],
+            },
+          ] as const;
+
+          const itemsByName = new Map(
+            skillsWithIcons.map((s) => [s.name, s] as const),
+          );
+
+          return (
+            <div className="relative [--badge-height:1.5rem] [--col-left-width:12rem]">
+              <div
+                className="pointer-events-none absolute inset-y-0 left-[var(--col-left-width)] -z-10 hidden w-px bg-[linear-gradient(to_bottom,hsl(var(--border))_4px,transparent_2px)] bg-[length:1px_6px] bg-repeat-y sm:block"
+                aria-hidden
+              />
+
+              {groups.map((group, idx) => {
+                const number = String(idx + 1).padStart(2, "0");
+                const rowId = `stack-${group.id}`;
+
+                return (
+                  <div
+                    key={group.id}
+                    className="grid items-start gap-y-2 border-b border-border py-4 last:border-none sm:grid-cols-[var(--col-left-width)_1fr]"
+                  >
+                    <div
+                      id={rowId}
+                      className="pl-4 text-sm text-muted-foreground leading-[var(--badge-height)]"
+                    >
+                      <span
+                        className="mr-1.5 font-mono text-muted-foreground/50 select-none"
+                        aria-hidden
+                      >
+                        {number}
+                      </span>
+                      {group.label}
+                    </div>
+
+                    <ul aria-labelledby={rowId} className="flex flex-wrap gap-1.5 px-4">
+                      {group.items
+                        .map((itemName) => itemsByName.get(itemName))
+                        .filter(
+                          (
+                            item,
+                          ): item is (typeof skillsWithIcons)[number] =>
+                            Boolean(item),
+                        )
+                        .map(({ name, href, Icon }) => (
+                          <li key={name} className="flex">
+                            <a
+                              href={href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex h-[var(--badge-height)] items-center justify-center gap-1.5 rounded-full bg-muted/60 px-2 font-mono text-xs text-foreground ring-1 ring-inset ring-border hover:bg-muted"
+                            >
+                              <Icon
+                                className="size-3.5 shrink-0 text-muted-foreground/80"
+                                aria-hidden
+                              />
+                              {name}
+                            </a>
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })()}
+      </section>
 
       <div className="flex flex-col gap-2 border-t border-border p-4">
         <div className="max-w-[690px] mx-auto relative p-3 py-4 sm:py-6 flex flex-col items-center text-center">
           <QuoteIcon
-            className="sm:text-4xl text-3xl text-gray-300 mb-4 sm:mb-6 shrink-0 size-6 sm:size-10"
+            className="sm:text-4xl text-3xl text-muted-foreground/30 mb-4 sm:mb-6 shrink-0 size-6 sm:size-10"
             aria-hidden
           />
           <blockquote className="relative z-10 max-w-2xl px-1 sm:px-4">
-            <p className="text-xl sm:text-3xl font-bold italic text-[#333333] leading-relaxed tracking-tight">
+            <p className="text-xl sm:text-3xl font-bold italic text-foreground leading-relaxed tracking-tight">
               &ldquo;{t.quote.text}&rdquo;
             </p>
           </blockquote>
           <div className="sm:mt-8 mt-6 flex items-center gap-3 z-10">
-            <div className="h-px w-8 bg-gray-300" />
-            <span className="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-widest">
+            <div className="h-px w-8 bg-border" />
+            <span className="text-xs sm:text-sm font-semibold text-muted-foreground uppercase tracking-widest">
               {t.quote.author}
             </span>
-            <div className="h-px w-8 bg-gray-300" />
+            <div className="h-px w-8 bg-border" />
           </div>
         </div>
       </div>

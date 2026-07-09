@@ -41,8 +41,8 @@ export function ProjectCard({
     },
     private: {
       label: "Private",
-      color: "text-gray-500",
-      bgColor: "bg-gray-500",
+      color: "text-muted-foreground",
+      bgColor: "bg-muted-foreground",
     },
   };
 
@@ -55,10 +55,10 @@ export function ProjectCard({
         href={href}
         className="flex flex-col gap-2 cursor-pointer group w-full"
       >
-        <div className="p-[4px] rounded-[12px] border border-gray-300">
-          <div className="relative w-full aspect-[1200/660] bg-gray-100 rounded-[8px] border border-gray-300 overflow-hidden select-none">
+        <div className="p-[4px] rounded-[12px] border border-border bg-background">
+          <div className="relative w-full aspect-[1200/660] bg-muted rounded-[8px] border border-border overflow-hidden select-none">
             {comingSoon && (
-              <h1 className="absolute top-2 left-2 z-10 text-xs text-gray-500 group-hover:text-black font-medium transition-all duration-300 group-hover:left-1/2 group-hover:-translate-x-1/2">
+              <h1 className="absolute top-2 left-2 z-10 text-xs text-muted-foreground group-hover:text-foreground font-medium transition-all duration-300 group-hover:left-1/2 group-hover:-translate-x-1/2">
                 Coming Soon
               </h1>
             )}
@@ -76,7 +76,7 @@ export function ProjectCard({
         </div>
         <div className="px-2 flex flex-col gap-1">
           <div className="flex items-center justify-between">
-            <h3 className="text-[1.10rem] leading-[1.10] text-gray-900 font-bold">
+            <h3 className="text-[1.10rem] leading-[1.10] text-foreground font-bold">
               {title}
             </h3>
             <div className="flex items-center gap-1 select-none">
@@ -102,10 +102,10 @@ export function ProjectCard({
                   </svg>
                 </div>
               )}
-              <p className="text-sm text-gray-500 font-medium">{displayLabel}</p>
+              <p className="text-sm text-muted-foreground font-medium">{displayLabel}</p>
             </div>
           </div>
-          <p className="text-sm text-gray-500">{description}</p>
+          <p className="text-sm text-muted-foreground">{description}</p>
         </div>
       </Link>
       <div className="block md:hidden">

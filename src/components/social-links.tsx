@@ -8,7 +8,7 @@ import {
 import { CONTACT } from "@/lib/contact";
 
 const socialButtonClassName =
-  "size-8 rounded-lg border-border bg-background text-foreground/80 shadow-none hover:bg-muted hover:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 [&_svg:not([class*='size-'])]:size-4.5";
+  "size-8 rounded-lg border-border bg-background text-foreground/80 shadow-none hover:bg-muted hover:text-foreground [&_svg:not([class*='size-'])]:size-4.5";
 
 const socialLinks = [
   {

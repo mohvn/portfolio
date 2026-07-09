@@ -3,6 +3,7 @@ import { NavbarLinks, type NavbarLinkItem } from "@/components/navbar-links";
 import { Separator } from "@/components/ui/separator";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { getTranslations, type Locale } from "@/i18n";
+import { assetPath } from "@/lib/base-path";
 
 export function Navbar({ locale }: { locale: Locale }) {
   const t = getTranslations(locale);
@@ -10,17 +11,17 @@ export function Navbar({ locale }: { locale: Locale }) {
   const links: NavbarLinkItem[] = [
     {
       id: "experiences",
-      href: `/${locale}#experiences`,
+      href: assetPath(`/${locale}#experiences`),
       label: t.nav.experiences,
     },
     {
       id: "projects",
-      href: `/${locale}#projects`,
+      href: assetPath(`/${locale}#projects`),
       label: t.nav.projects,
     },
     {
       id: "skills",
-      href: `/${locale}#skills`,
+      href: assetPath(`/${locale}#skills`),
       label: t.nav.skills,
     },
   ];
