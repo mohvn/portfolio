@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import type { Portfolio } from "@/lib/i18n";
+import { withBasePath } from "@/lib/base-path";
 import { ProjectIcon } from "@/components/portfolio/project-icon";
 import { SkillIcon } from "@/components/portfolio/skill-icon";
 import { cn } from "@/lib/utils";
@@ -48,7 +49,7 @@ function EmpreenderLabel({ label }: { label: string }) {
   return (
     <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-grayscale-3 bg-grayscale-2 px-1.5 py-0.5 dark:border-grayscale-5 dark:bg-grayscale-4">
       <Image
-        src="/empreender.svg"
+        src={withBasePath("/empreender.svg")}
         alt="Empreender"
         width={167}
         height={25}

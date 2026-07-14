@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { withBasePath } from "@/lib/base-path";
 import { getFaviconUrl } from "@/lib/favicon";
 import { cn } from "@/lib/utils";
 import type { IconColor } from "@/lib/portfolio-shared";
@@ -38,7 +39,7 @@ export function ProjectIcon({
 
   return (
     <img
-      src={favicon}
+      src={withBasePath(favicon)}
       alt={`${title} favicon`}
       width={20}
       height={20}

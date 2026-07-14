@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/base-path";
+
 export const portfolioBase = {
   name: "Mohan Elias",
   slug: "mohvn",
@@ -63,7 +65,7 @@ export const projectsShared = [
   {
     id: "py013",
     href: "https://www.py013.com.br",
-    preview: "https://mohvn.github.io/portfolio/static/images/py013.png",
+    preview: withBasePath("/images/py013.png"),
     span: "full" as const,
     status: "live" as const,
     icon: "P",
@@ -72,7 +74,7 @@ export const projectsShared = [
   {
     id: "rastreio",
     href: "https://get.rastreio.net",
-    preview: "https://mohvn.github.io/portfolio/static/images/rastreio.png",
+    preview: withBasePath("/images/rastreio.png"),
     span: "md" as const,
     status: "building" as const,
     icon: "R",
@@ -82,8 +84,8 @@ export const projectsShared = [
   {
     id: "area-do-cliente",
     href: "https://app.areadocliente.com.br/inicio",
-    preview: "/areadocliente.png",
-    favicon: "/area.ico",
+    preview: withBasePath("/areadocliente.png"),
+    favicon: withBasePath("/area.ico"),
     span: "md" as const,
     status: "live" as const,
     icon: "+",
@@ -93,7 +95,7 @@ export const projectsShared = [
   {
     id: "ovni",
     href: "https://app.ovni.com.br",
-    preview: "/ovni.png",
+    preview: withBasePath("/ovni.png"),
     span: "md" as const,
     status: "live" as const,
     icon: "O",
@@ -103,7 +105,7 @@ export const projectsShared = [
   {
     id: "sttp",
     href: "https://mohvn.github.io/sttp",
-    preview: "https://mohvn.github.io/portfolio/static/images/sttp.png",
+    preview: withBasePath("/images/sttp.png"),
     span: "md" as const,
     status: "live" as const,
     icon: "S",
@@ -112,7 +114,7 @@ export const projectsShared = [
   {
     id: "caddie",
     href: "https://www.caddieestrategia.com.br",
-    preview: "https://mohvn.github.io/portfolio/static/images/caddie.png",
+    preview: withBasePath("/images/caddie.png"),
     span: "md" as const,
     status: "live" as const,
     icon: "C",
@@ -121,9 +123,8 @@ export const projectsShared = [
   {
     id: "abelha",
     href: "https://www.sistema-abelha.com.br",
-    preview:
-      "https://mohvn.github.io/portfolio/static/images/sistemaabelha.png",
-    favicon: "/abelha.ico",
+    preview: withBasePath("/images/sistemaabelha.png"),
+    favicon: withBasePath("/abelha.ico"),
     span: "md" as const,
     status: "live" as const,
     icon: "A",
@@ -132,7 +133,7 @@ export const projectsShared = [
   {
     id: "sds",
     href: "#",
-    preview: "https://mohvn.github.io/portfolio/static/images/sds.png",
+    preview: withBasePath("/images/sdswiki.png"),
     span: "md" as const,
     status: "live" as const,
     icon: "D",
@@ -141,7 +142,7 @@ export const projectsShared = [
   {
     id: "lojao-do-bras",
     href: "#",
-    preview: "https://mohvn.github.io/portfolio/static/images/lojaodobras.png",
+    preview: withBasePath("/images/lojaodobras.png"),
     span: "md" as const,
     status: "private" as const,
     icon: "L",

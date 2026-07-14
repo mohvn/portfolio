@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || undefined;
+
 const nextConfig: NextConfig = {
+  output: "export",
+  basePath,
+  assetPrefix: basePath,
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -12,11 +18,6 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "media.licdn.com",
         pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "mohvn.github.io",
-        pathname: "/portfolio/static/images/**",
       },
     ],
   },

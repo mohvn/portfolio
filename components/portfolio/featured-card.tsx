@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { Portfolio } from "@/lib/i18n";
+import { withBasePath } from "@/lib/base-path";
 import { FlickeringGrid } from "@/components/ui/flicker";
 
 function useIsDark() {
@@ -51,7 +52,7 @@ export function FeaturedCard({ portfolio }: { portfolio: Portfolio }) {
           {featured.label}
         </span>
         <Image
-          src="/empreender.svg"
+          src={withBasePath("/empreender.svg")}
           alt="Empreender"
           width={167}
           height={25}
