@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import { JetBrains_Mono, Pirata_One } from "next/font/google";
+import { Caveat, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -9,9 +9,8 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
 });
 
-const pirataOne = Pirata_One({
+const caveat = Caveat({
   subsets: ["latin"],
-  weight: "400",
   variable: "--font-display",
 });
 
@@ -31,7 +30,7 @@ export default function RootLayout({
         "h-full",
         GeistSans.variable,
         jetbrainsMono.variable,
-        pirataOne.variable,
+        caveat.variable,
       )}
       suppressHydrationWarning
     >

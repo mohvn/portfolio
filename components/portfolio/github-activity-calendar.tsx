@@ -246,7 +246,7 @@ export function GitHubActivityCalendar({
 
   return (
     <TooltipProvider>
-      <div className="mt-4 flex w-full justify-center">
+      <div className="flex w-full justify-center overflow-x-auto">
         <div className="flex flex-col gap-2">
           <div className="flex flex-col overflow-visible">
             <div className="mb-1 flex overflow-visible">

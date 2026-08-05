@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { playUiSound } from "@/lib/ui-sound";
 
 export function DarkModeSwitch() {
   const [dark, setDark] = useState(false);
@@ -21,7 +20,6 @@ export function DarkModeSwitch() {
     setDark(next);
     document.documentElement.classList.toggle("dark", next);
     localStorage.setItem("theme", next ? "dark" : "light");
-    playUiSound();
   }
 
   return (
@@ -31,6 +29,7 @@ export function DarkModeSwitch() {
       aria-checked={dark}
       aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
       onClick={toggleDark}
+      data-cuelume-toggle
       className="flex shrink-0 items-center justify-center rounded-lg border border-grayscale-3 bg-grayscale-1 py-1 text-grayscale-11 transition-colors hover:text-grayscale-12 dark:border-grayscale-5 dark:bg-grayscale-3"
     >
       <span className="relative flex items-center justify-center rounded-md px-2 py-0.5">

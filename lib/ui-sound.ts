@@ -1,23 +1,15 @@
-import { withBasePath } from "@/lib/base-path";
+import { bind, play, setVolume, type SoundName } from "cuelume";
 
-const clips = new Map<string, HTMLAudioElement>();
+let initialized = false;
 
-function getClip(src: string, volume = 0.5) {
-  let base = clips.get(src);
-  if (!base) {
-    base = new Audio(src);
-    base.preload = "auto";
-    base.volume = volume;
-    clips.set(src, base);
-  }
-  return base;
+export function initUiSound() {
+  if (typeof window === "undefined" || initialized) return;
+  setVolume(0.55);
+  bind();
+  initialized = true;
 }
 
-export function playUiSound(src = "/sounds/toggle.wav", volume = 0.5) {
+export function playUiSound(name: SoundName = "toggle") {
   if (typeof window === "undefined") return;
-
-  const base = getClip(withBasePath(src), volume);
-  const clip = base.cloneNode(true) as HTMLAudioElement;
-  clip.volume = volume;
-  void clip.play().catch(() => {});
+  play(name);
 }

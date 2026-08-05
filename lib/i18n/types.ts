@@ -1,3 +1,8 @@
+export type BioItem = {
+  text: string;
+  children?: string[];
+};
+
 export type LocaleCopy = {
   meta: {
     title: string;
@@ -20,6 +25,7 @@ export type LocaleCopy = {
     current: string;
     fullTime: string;
     freelance: string;
+    viewProject: string;
     projectStatus: {
       live: string;
       building: string;
@@ -48,21 +54,20 @@ export type LocaleCopy = {
       design: string;
       workflow: string;
     };
-    quote: {
-      text: string;
-      author: string;
+    footer: {
+      headline: string;
+      availability: string;
+      github: string;
+      linkedin: string;
+      email: string;
+      copyright: string;
     };
   };
   copy: {
     role: string;
     location: string;
     bio: {
-      lead: string;
-      paragraphs: string[];
-    };
-    featured: {
-      label: string;
-      href: string;
+      items: BioItem[];
     };
     experiments: Record<string, { title: string; description: string }>;
     projects: Record<string, { title: string; description: string }>;

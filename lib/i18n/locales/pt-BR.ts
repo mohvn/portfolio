@@ -22,6 +22,7 @@ export const ptBR: LocaleCopy = {
     current: "Atual",
     fullTime: "Tempo integral",
     freelance: "Freelance",
+    viewProject: "Ver projeto",
     projectStatus: {
       live: "No ar",
       building: "Em construção",
@@ -53,21 +54,21 @@ export const ptBR: LocaleCopy = {
     ],
     sections: {
       experiments: {
-        title: "experiments",
+        title: "Experiments",
         description:
           "Estudos de interface, padrões de componentes e demos técnicos.",
       },
       projects: {
-        title: "projects",
+        title: "Projects",
         description:
           "Ferramentas e produtos que estou construindo, mantendo ou explorando.",
       },
       experience: {
-        title: "experience",
+        title: "Experience",
         description: "Trajetória profissional e experiências recentes.",
       },
       skills: {
-        title: "skills",
+        title: "Skills",
         description: "Tecnologias e ferramentas que uso no dia a dia.",
       },
     },
@@ -77,24 +78,35 @@ export const ptBR: LocaleCopy = {
       design: "Design",
       workflow: "Workflow",
     },
-    quote: {
-      text: "Trabalhe tanto que seria irracional você não ter sucesso.",
-      author: "Alex Hormozi",
+    footer: {
+      headline: "Vamos construir algo útil.",
+      availability:
+        "Disponível para projetos de product design e engenharia front-end.",
+      github: "GitHub",
+      linkedin: "LinkedIn",
+      email: "Email",
+      copyright: "© {year} Mohan Elias.",
     },
   },
   copy: {
     role: "Desenvolvedor Frontend",
     location: "São Paulo, Brasil",
     bio: {
-      lead:
-        "Olá! Sou o Mohan, desenvolvedor frontend de São Paulo, fascinado por como as coisas digitais são construídas desde os primórdios da internet. Essa curiosidade virou carreira construindo interfaces e aplicações web. Hoje desenvolvo produtos na Empreender e levo ideias até o código em produção.",
-      paragraphs: [
-        "Também colaboro com startups e times independentes como freelancer em frontend e full stack. Me importo muito com código limpo, UX cuidadosa e as ferramentas certas para cada projeto.",
+      items: [
+        {
+          text: "**Desenvolvedor frontend** de São Paulo, com olhar afiado para detalhe e interfaces limpas.",
+        },
+        {
+          text: "Construo aplicações web polidas com **React**, **Next.js**, **TypeScript**, **Tailwind CSS** e **Astro**.",
+        },
+        {
+          text: "**Desenvolvedor Frontend** na **Empreender** — produtos de ecommerce usados por lojistas no Brasil.",
+          children: [
+            "**React**, **Next.js** e **Tailwind CSS** em produção",
+            "Foco em UX, SEO e performance",
+          ],
+        },
       ],
-    },
-    featured: {
-      label: "ATUALMENTE EM",
-      href: "#experiencia",
     },
     experiments: {
       "react-ui": {

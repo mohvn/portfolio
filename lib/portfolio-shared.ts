@@ -4,7 +4,7 @@ export const portfolioBase = {
   name: "Mohan Elias",
   slug: "mohvn",
   repo: "mohvn/portfolio",
-  avatar: "https://github.com/mohvn.png",
+  avatar: withBasePath("/images/avatar.png"),
   website: "https://mohvn.github.io",
   contact: {
     email: "mohvn@proton.me",
@@ -156,7 +156,7 @@ export const experienceShared = [
     name: "Empreender",
     remote: true,
     current: true,
-    logo: "https://media.licdn.com/dms/image/v2/D4D0BAQE6bzGoJL2ORw/company-logo_100_100/company-logo_100_100/0/1704765693147/empreender_logo?e=1785369600&v=beta&t=4L-3m1Bc-NUv0VZ1Bds5AWJuGoGEsnQVwgjmUU1CRkQ",
+    logo: withBasePath("/images/empreender-logo.jpg"),
     positions: [
       {
         id: "frontend",
@@ -172,7 +172,7 @@ export const experienceShared = [
     name: "Botslab",
     remote: true,
     current: false,
-    logo: "https://media.licdn.com/dms/image/v2/C4E0BAQFwEDHMlnWAwQ/company-logo_100_100/company-logo_100_100/0/1654016006485/botslab_logo?e=1785369600&v=beta&t=4yrSCcFnSxyHB2DMlQ05NpmUq1zpMOda_dGdwzva6oA",
+    logo: withBasePath("/images/botslab-logo.jpg"),
     positions: [
       {
         id: "rpa-python",

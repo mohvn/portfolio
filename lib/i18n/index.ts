@@ -26,7 +26,6 @@ export function getPortfolio(locale: Locale) {
     role: t.copy.role,
     location: t.copy.location,
     bio: t.copy.bio,
-    featured: t.copy.featured,
     experiments: experimentsShared.map((item) => ({
       ...item,
       ...t.copy.experiments[item.id],

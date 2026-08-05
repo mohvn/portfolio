@@ -22,6 +22,7 @@ export const en: LocaleCopy = {
     current: "Current",
     fullTime: "Full-time",
     freelance: "Freelance",
+    viewProject: "View project",
     projectStatus: {
       live: "Live",
       building: "Building",
@@ -53,21 +54,21 @@ export const en: LocaleCopy = {
     ],
     sections: {
       experiments: {
-        title: "experiments",
+        title: "Experiments",
         description:
           "Interface studies, component patterns, and technical demos.",
       },
       projects: {
-        title: "projects",
+        title: "Projects",
         description:
           "Tools and products I'm building, maintaining, or exploring.",
       },
       experience: {
-        title: "experience",
+        title: "Experience",
         description: "Professional journey and recent work.",
       },
       skills: {
-        title: "skills",
+        title: "Skills",
         description: "Technologies and tools I use day to day.",
       },
     },
@@ -77,24 +78,35 @@ export const en: LocaleCopy = {
       design: "Design",
       workflow: "Workflow",
     },
-    quote: {
-      text: "Work so hard that it would be irrational for you not to succeed.",
-      author: "Alex Hormozi",
+    footer: {
+      headline: "Let's build something useful.",
+      availability:
+        "Available for product design and front-end engineering projects.",
+      github: "GitHub",
+      linkedin: "LinkedIn",
+      email: "Email",
+      copyright: "© {year} Mohan Elias.",
     },
   },
   copy: {
     role: "Frontend Developer",
     location: "São Paulo, Brazil",
     bio: {
-      lead:
-        "Hey, I'm Mohan, a frontend developer from São Paulo who's been fascinated by how digital things are built since the early internet days. That curiosity eventually turned into a career building interfaces and web applications. Today I develop products at Empreender and take ideas all the way to production code.",
-      paragraphs: [
-        "I also collaborate with startups and independent teams as a freelancer across frontend and full-stack work. I care a lot about clean code, thoughtful UX, and choosing the right tools for each project.",
+      items: [
+        {
+          text: "**Frontend developer** from São Paulo with a strong eye for detail and clean interfaces.",
+        },
+        {
+          text: "I build polished web applications with **React**, **Next.js**, **TypeScript**, **Tailwind CSS**, and **Astro**.",
+        },
+        {
+          text: "**Frontend Developer** at **Empreender** — shipping ecommerce products used by Brazilian merchants.",
+          children: [
+            "**React**, **Next.js**, and **Tailwind CSS** in production",
+            "Focus on UX, SEO, and performance",
+          ],
+        },
       ],
-    },
-    featured: {
-      label: "CURRENTLY AT",
-      href: "#experiencia",
     },
     experiments: {
       "react-ui": {

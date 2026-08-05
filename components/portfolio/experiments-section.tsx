@@ -56,7 +56,7 @@ export function ExperimentsSection({ portfolio }: { portfolio: Portfolio }) {
   return (
     <section id="experiments" className="flex flex-col gap-3">
       <div className="flex flex-col gap-px p-2">
-        <h2 className="font-display text-xl font-bold">
+        <h2 className="text-xl font-semibold tracking-tight text-grayscale-12">
           {ui.sections.experiments.title}
         </h2>
         <p className="max-w-xl text-sm text-balance text-grayscale-10">

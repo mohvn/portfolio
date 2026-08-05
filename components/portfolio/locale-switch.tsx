@@ -18,7 +18,7 @@ export function LocaleSwitch({
 }) {
   function handleSwitch(next: Locale) {
     if (next === locale) return;
-    playUiSound("/sounds/whisper.wav");
+    playUiSound("whisper");
     onSwitch(next);
   }
 
@@ -32,6 +32,7 @@ export function LocaleSwitch({
             key={item}
             type="button"
             onClick={() => handleSwitch(item)}
+            data-cuelume-hover="tick"
             className={cn(
               "rounded-md px-2 py-0.5 font-mono text-[10px] font-medium uppercase transition-colors",
               isActive

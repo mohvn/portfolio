@@ -1,63 +1,94 @@
+import Image from "next/image";
+import type { ReactNode } from "react";
 import type { Portfolio } from "@/lib/i18n";
-import { FeaturedCard } from "@/components/portfolio/featured-card";
+import { withBasePath } from "@/lib/base-path";
 
-export function Hero({ portfolio }: { portfolio: Portfolio }) {
+function RichText({ text }: { text: string }) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+
   return (
-    <div className="flex flex-col gap-px p-2">
-      <div className="mt-2 flex flex-col gap-2">
-        <p className="text-sm font-medium text-grayscale-11">{portfolio.role}</p>
-        <p className="text-xs text-grayscale-9">{portfolio.location}</p>
-      </div>
+    <>
+      {parts.map((part, index) => {
+        if (part.startsWith("**") && part.endsWith("**")) {
+          return (
+            <strong
+              key={index}
+              className="font-medium text-grayscale-12"
+            >
+              {part.slice(2, -2)}
+            </strong>
+          );
+        }
 
-      <div className="mb-4 flex flex-col gap-2">
-        <p className="text-sm font-medium text-grayscale-11">{portfolio.bio.lead}</p>
-        {portfolio.bio.paragraphs.map((paragraph) => (
-          <p key={paragraph} className="text-sm text-grayscale-10">
-            {paragraph}
-          </p>
-        ))}
-      </div>
-    </div>
+        return <span key={index}>{part}</span>;
+      })}
+    </>
   );
 }
 
-export function AboutSection({ portfolio }: { portfolio: Portfolio }) {
-  const { role, location, contact } = portfolio;
-
+export function Hero({
+  portfolio,
+  actions,
+}: {
+  portfolio: Portfolio;
+  actions?: ReactNode;
+}) {
   return (
-    <section className="grid min-h-0 grid-cols-1 gap-1.5 rounded-2xl border border-grayscale-3 bg-grayscale-2 p-1.5 md:grid-cols-2">
-      <div className="flex w-full flex-col items-center justify-center gap-1.5 rounded-[13px] border border-grayscale-3 bg-grayscale-1 small-shadow dark:border-transparent dark:bg-grayscale-2 dark:shadow-none">
-        <div className="flex flex-col items-center gap-2 p-8 text-center">
-          <p className="text-sm font-medium text-grayscale-12">{role}</p>
-          <p className="text-xs text-grayscale-9">{location}</p>
-          <div className="mt-2 flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs">
-            <a
-              href={`mailto:${contact.email}`}
-              className="text-grayscale-11 underline decoration-grayscale-5 underline-offset-2 transition-colors hover:text-grayscale-12"
-            >
-              {contact.email}
-            </a>
-            <a
-              href={contact.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-grayscale-11 underline decoration-grayscale-5 underline-offset-2 transition-colors hover:text-grayscale-12"
-            >
-              GitHub
-            </a>
-            <a
-              href={contact.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-grayscale-11 underline decoration-grayscale-5 underline-offset-2 transition-colors hover:text-grayscale-12"
-            >
-              LinkedIn
-            </a>
+    <header className="flex flex-col gap-8">
+      <div>
+        <div className="relative aspect-[4/1] w-full overflow-hidden rounded-2xl bg-grayscale-3 dark:bg-grayscale-4">
+          <Image
+            src={withBasePath("/images/banner.png")}
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 800px) 100vw, 800px"
+            className="object-cover"
+          />
+        </div>
+
+        <div className="relative z-10 -mt-9 flex items-end gap-3 px-1 sm:-mt-11 sm:gap-4">
+          <Image
+            src={portfolio.avatar}
+            alt={portfolio.name}
+            width={84}
+            height={84}
+            priority
+            className="size-[84px] shrink-0 rounded-full bg-grayscale-1 object-cover ring-[3px] ring-grayscale-1 sm:size-[88px]"
+          />
+
+          <div className="flex min-w-0 flex-1 flex-col gap-0.5 pt-8 sm:pt-14">
+            <div className="flex items-center justify-between gap-3">
+              <h1 className="min-w-0 truncate text-xl font-semibold tracking-tight text-grayscale-12 sm:text-2xl">
+                {portfolio.name}
+              </h1>
+              {actions ? (
+                <div className="flex shrink-0 items-center gap-2">
+                  {actions}
+                </div>
+              ) : null}
+            </div>
+            <p className="truncate text-sm text-grayscale-10">{portfolio.role}</p>
           </div>
         </div>
       </div>
 
-      <FeaturedCard portfolio={portfolio} />
-    </section>
+      <ul className="flex list-disc flex-col gap-2.5 pl-5 text-sm leading-relaxed text-grayscale-11 marker:text-grayscale-8">
+        {portfolio.bio.items.map((item) => (
+          <li key={item.text} className="pl-1 text-pretty">
+            <RichText text={item.text} />
+            {item.children && item.children.length > 0 ? (
+              <ul className="mt-1.5 flex list-disc flex-col gap-1 pl-5 marker:text-grayscale-7">
+                {item.children.map((child) => (
+                  <li key={child} className="text-grayscale-10">
+                    <RichText text={child} />
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </li>
+        ))}
+      </ul>
+    </header>
   );
 }
