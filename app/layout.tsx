@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import { Caveat, JetBrains_Mono } from "next/font/google";
+import { Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -9,14 +9,16 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
 });
 
-const caveat = Caveat({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-display",
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
-  title: "Mohan Elias",
-  description: "The personal website of Mohan Elias.",
+  title: "mohan elias",
+  description: "the personal website of mohan elias.",
 };
 
 export default function RootLayout({
@@ -30,7 +32,7 @@ export default function RootLayout({
         "h-full",
         GeistSans.variable,
         jetbrainsMono.variable,
-        caveat.variable,
+        instrumentSerif.variable,
       )}
       suppressHydrationWarning
     >

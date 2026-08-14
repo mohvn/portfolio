@@ -3,7 +3,6 @@ import { en } from "./locales/en";
 import { ptBR } from "./locales/pt-BR";
 import type { LocaleCopy } from "./types";
 import {
-  experimentsShared,
   experienceShared,
   portfolioBase,
   projectsShared,
@@ -25,11 +24,10 @@ export function getPortfolio(locale: Locale) {
     ...portfolioBase,
     role: t.copy.role,
     location: t.copy.location,
-    bio: t.copy.bio,
-    experiments: experimentsShared.map((item) => ({
-      ...item,
-      ...t.copy.experiments[item.id],
-    })),
+    greeting: t.copy.greeting,
+    tagline: t.copy.tagline,
+    paragraphs: t.copy.paragraphs,
+    closing: t.copy.closing,
     projects: projectsShared.map((item) => ({
       ...item,
       ...t.copy.projects[item.id],
@@ -47,10 +45,6 @@ export function getPortfolio(locale: Locale) {
       };
     }),
     contact: portfolioBase.contact,
-    skillGroups: portfolioBase.skillGroups.map((group) => ({
-      ...group,
-      label: t.ui.skillGroups[group.id],
-    })),
     ui: t.ui,
     meta: t.meta,
   };

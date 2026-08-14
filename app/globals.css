@@ -5,7 +5,7 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-mono);
-  --font-display: var(--font-display);
+  --font-serif: var(--font-serif);
 
   --color-grayscale-1: var(--grayscale-1);
   --color-grayscale-2: var(--grayscale-2);
@@ -81,10 +81,6 @@
 }
 
 @layer utilities {
-  .font-display {
-    font-family: var(--font-display), cursive;
-  }
-
   .small-shadow {
     box-shadow:
       0 0 0 1px rgb(0 0 0 / 0.03),
@@ -94,4 +90,159 @@
   .dark .small-shadow {
     box-shadow: none;
   }
+}
+
+/* Progressive edge blur — technique from cmrg.me (banded masks + backdrop-filter) */
+.blur-overlay {
+  margin: -1px 0;
+}
+
+.blur-overlay > div,
+.blur-overlay::before,
+.blur-overlay::after {
+  position: absolute;
+  inset: 0;
+}
+
+.blur-overlay::before {
+  content: "";
+  z-index: 1;
+  backdrop-filter: blur(0.5px);
+  -webkit-backdrop-filter: blur(0.5px);
+  mask: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #fff 12.5%,
+    #fff 25%,
+    transparent 37.5%
+  );
+  -webkit-mask: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #fff 12.5%,
+    #fff 25%,
+    transparent 37.5%
+  );
+}
+
+.blur-overlay > div:first-of-type {
+  z-index: 2;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  mask: linear-gradient(
+    to bottom,
+    transparent 12.5%,
+    #fff 25%,
+    #fff 37.5%,
+    transparent 50%
+  );
+  -webkit-mask: linear-gradient(
+    to bottom,
+    transparent 12.5%,
+    #fff 25%,
+    #fff 37.5%,
+    transparent 50%
+  );
+}
+
+.blur-overlay > div:nth-of-type(2) {
+  z-index: 3;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  mask: linear-gradient(
+    to bottom,
+    transparent 25%,
+    #fff 37.5%,
+    #fff 50%,
+    transparent 62.5%
+  );
+  -webkit-mask: linear-gradient(
+    to bottom,
+    transparent 25%,
+    #fff 37.5%,
+    #fff 50%,
+    transparent 62.5%
+  );
+}
+
+.blur-overlay > div:nth-of-type(3) {
+  z-index: 4;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  mask: linear-gradient(
+    to bottom,
+    transparent 37.5%,
+    #fff 50%,
+    #fff 62.5%,
+    transparent 75%
+  );
+  -webkit-mask: linear-gradient(
+    to bottom,
+    transparent 37.5%,
+    #fff 50%,
+    #fff 62.5%,
+    transparent 75%
+  );
+}
+
+.blur-overlay > div:nth-of-type(4) {
+  z-index: 5;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  mask: linear-gradient(
+    to bottom,
+    transparent 50%,
+    #fff 62.5%,
+    #fff 75%,
+    transparent 87.5%
+  );
+  -webkit-mask: linear-gradient(
+    to bottom,
+    transparent 50%,
+    #fff 62.5%,
+    #fff 75%,
+    transparent 87.5%
+  );
+}
+
+.blur-overlay > div:nth-of-type(5) {
+  z-index: 6;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  mask: linear-gradient(
+    to bottom,
+    transparent 62.5%,
+    #fff 75%,
+    #fff 87.5%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(
+    to bottom,
+    transparent 62.5%,
+    #fff 75%,
+    #fff 87.5%,
+    transparent 100%
+  );
+}
+
+.blur-overlay > div:nth-of-type(6) {
+  z-index: 7;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  mask: linear-gradient(to bottom, transparent 75%, #fff 87.5%, #fff 100%);
+  -webkit-mask: linear-gradient(
+    to bottom,
+    transparent 75%,
+    #fff 87.5%,
+    #fff 100%
+  );
+}
+
+.blur-overlay::after {
+  content: "";
+  z-index: 8;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  mask: linear-gradient(to bottom, transparent 87.5%, #fff 100%);
+  -webkit-mask: linear-gradient(to bottom, transparent 87.5%, #fff 100%);
 }

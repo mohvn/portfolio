@@ -1,23 +1,28 @@
-import Image from "next/image";
+"use client";
+
 import type { ReactNode } from "react";
 import type { Portfolio } from "@/lib/i18n";
-import { withBasePath } from "@/lib/base-path";
+import { RoughMark } from "@/components/portfolio/rough-mark";
+import {
+  companies,
+  CompanyMention,
+} from "@/components/portfolio/company-mention";
 
 function RichText({ text }: { text: string }) {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  const parts = text.split(/(\*\*[^*]+\*\*|\[\[[^\]]+\]\])/g);
 
   return (
     <>
       {parts.map((part, index) => {
+        if (part.startsWith("[[") && part.endsWith("]]")) {
+          const id = part.slice(2, -2);
+          const company = companies[id];
+          if (!company) return <span key={index}>{part}</span>;
+          return <CompanyMention key={index} company={company} />;
+        }
+
         if (part.startsWith("**") && part.endsWith("**")) {
-          return (
-            <strong
-              key={index}
-              className="font-medium text-grayscale-12"
-            >
-              {part.slice(2, -2)}
-            </strong>
-          );
+          return <RoughMark key={index}>{part.slice(2, -2)}</RoughMark>;
         }
 
         return <span key={index}>{part}</span>;
@@ -35,60 +40,27 @@ export function Hero({
 }) {
   return (
     <header className="flex flex-col gap-8">
-      <div>
-        <div className="relative aspect-[4/1] w-full overflow-hidden rounded-2xl bg-grayscale-3 dark:bg-grayscale-4">
-          <Image
-            src={withBasePath("/images/banner.png")}
-            alt=""
-            fill
-            priority
-            sizes="(max-width: 800px) 100vw, 800px"
-            className="object-cover"
-          />
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex min-w-0 flex-col gap-2">
+          <h1 className="font-serif text-3xl tracking-tight text-grayscale-12 lowercase sm:text-4xl md:text-5xl">
+            {portfolio.greeting}
+          </h1>
+          <p className="font-serif text-lg italic text-grayscale-10 lowercase sm:text-xl">
+            {portfolio.tagline}
+          </p>
         </div>
-
-        <div className="relative z-10 -mt-9 flex items-end gap-3 px-1 sm:-mt-11 sm:gap-4">
-          <Image
-            src={portfolio.avatar}
-            alt={portfolio.name}
-            width={84}
-            height={84}
-            priority
-            className="size-[84px] shrink-0 rounded-full bg-grayscale-1 object-cover ring-[3px] ring-grayscale-1 sm:size-[88px]"
-          />
-
-          <div className="flex min-w-0 flex-1 flex-col gap-0.5 pt-8 sm:pt-14">
-            <div className="flex items-center justify-between gap-3">
-              <h1 className="min-w-0 truncate text-xl font-semibold tracking-tight text-grayscale-12 sm:text-2xl">
-                {portfolio.name}
-              </h1>
-              {actions ? (
-                <div className="flex shrink-0 items-center gap-2">
-                  {actions}
-                </div>
-              ) : null}
-            </div>
-            <p className="truncate text-sm text-grayscale-10">{portfolio.role}</p>
-          </div>
-        </div>
+        {actions ? (
+          <div className="flex shrink-0 items-center gap-2">{actions}</div>
+        ) : null}
       </div>
 
-      <ul className="flex list-disc flex-col gap-2.5 pl-5 text-sm leading-relaxed text-grayscale-11 marker:text-grayscale-8">
-        {portfolio.bio.items.map((item) => (
-          <li key={item.text} className="pl-1 text-pretty">
-            <RichText text={item.text} />
-            {item.children && item.children.length > 0 ? (
-              <ul className="mt-1.5 flex list-disc flex-col gap-1 pl-5 marker:text-grayscale-7">
-                {item.children.map((child) => (
-                  <li key={child} className="text-grayscale-10">
-                    <RichText text={child} />
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </li>
+      <div className="flex flex-col gap-4 text-base leading-7 text-pretty text-grayscale-11 lowercase">
+        {portfolio.paragraphs.map((paragraph) => (
+          <p key={paragraph}>
+            <RichText text={paragraph} />
+          </p>
         ))}
-      </ul>
+      </div>
     </header>
   );
 }

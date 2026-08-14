@@ -2,231 +2,125 @@ import type { LocaleCopy } from "../types";
 
 export const en: LocaleCopy = {
   meta: {
-    title: "Mohan Elias",
-    description: "The personal website of Mohan Elias.",
+    title: "mohan elias",
+    description: "the personal website of mohan elias.",
   },
   ui: {
-    darkMode: "Dark Mode",
-    toggleDarkMode: "Toggle dark mode",
-    localeSwitch: "Language",
-    remote: "Remote",
-    onSite: "On-site",
-    currentlyAt: "CURRENTLY AT",
-    present: "Present",
-    employmentType: "Employment type",
-    period: "Period",
-    duration: "Duration",
-    location: "Location",
-    modality: "Modality",
-    status: "Status",
-    current: "Current",
-    fullTime: "Full-time",
-    freelance: "Freelance",
-    viewProject: "View project",
+    darkMode: "dark mode",
+    toggleDarkMode: "toggle dark mode",
+    localeSwitch: "language",
+    present: "present",
+    remote: "remote",
+    viewProject: "open",
     projectStatus: {
-      live: "Live",
-      building: "Building",
-      private: "Private",
+      live: "live",
+      building: "building",
+      private: "private",
     },
-    empreenderLabel: "Empreender",
-    github: {
-      loading: "Loading contributions...",
-      error: "Failed to load contributions",
-      noData: "No data available",
-      contributions: "{count} contributions in the last year",
-      contributionOn: "{count} contributions on {date}",
-      less: "Less",
-      more: "More",
-    },
-    months: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
     sections: {
-      experiments: {
-        title: "Experiments",
-        description:
-          "Interface studies, component patterns, and technical demos.",
+      work: {
+        title: "where i've been",
+        lead: "from freelance sites and rpa automations to product interfaces at empreender, still shipping things people actually use.",
       },
-      projects: {
-        title: "Projects",
-        description:
-          "Tools and products I'm building, maintaining, or exploring.",
+      built: {
+        title: "things i built",
+        lead: "products, pages, and side projects that made it out of my editor and into the world. some loud, some quiet.",
       },
-      experience: {
-        title: "Experience",
-        description: "Professional journey and recent work.",
-      },
-      skills: {
-        title: "Skills",
-        description: "Technologies and tools I use day to day.",
-      },
-    },
-    skillGroups: {
-      frontend: "Frontend",
-      backend: "Backend",
-      design: "Design",
-      workflow: "Workflow",
     },
     footer: {
-      headline: "Let's build something useful.",
-      availability:
-        "Available for product design and front-end engineering projects.",
-      github: "GitHub",
-      linkedin: "LinkedIn",
-      email: "Email",
-      copyright: "© {year} Mohan Elias.",
+      note: "if you made it this far, you might as well say hi. i answer email, and i'm usually somewhere between a refactor and a coffee.",
+      github: "github",
+      linkedin: "linkedin",
+      email: "email",
+      copyright: "© {year} mohan elias",
     },
   },
   copy: {
-    role: "Frontend Developer",
-    location: "São Paulo, Brazil",
-    bio: {
-      items: [
-        {
-          text: "**Frontend developer** from São Paulo with a strong eye for detail and clean interfaces.",
-        },
-        {
-          text: "I build polished web applications with **React**, **Next.js**, **TypeScript**, **Tailwind CSS**, and **Astro**.",
-        },
-        {
-          text: "**Frontend Developer** at **Empreender** — shipping ecommerce products used by Brazilian merchants.",
-          children: [
-            "**React**, **Next.js**, and **Tailwind CSS** in production",
-            "Focus on UX, SEO, and performance",
-          ],
-        },
-      ],
-    },
-    experiments: {
-      "react-ui": {
-        title: "React UI",
-        description:
-          "Componentized interfaces with React, focused on composition and predictable state.",
-      },
-      "next-apps": {
-        title: "Next.js Apps",
-        description:
-          "SSR and SSG applications with Next.js, optimized for performance and SEO.",
-      },
-      tailwind: {
-        title: "Tailwind Design",
-        description:
-          "Fast visual systems with Tailwind CSS and consistent design tokens.",
-      },
-      typescript: {
-        title: "TypeScript",
-        description:
-          "Static typing for safer, more maintainable production code.",
-      },
-      "python-rpa": {
-        title: "Python RPA",
-        description:
-          "Automations and bots with Python for repetitive flows and integrations.",
-      },
-      "astro-docs": {
-        title: "Astro Docs",
-        description:
-          "Minimal documentation sites with Astro and Markdown content.",
-      },
-    },
+    role: "frontend developer",
+    location: "são paulo, brazil",
+    greeting: "hi, i'm mohan elias",
+    tagline: "i make interfaces that don't look like ai",
+    paragraphs: [
+      "frontend developer from são paulo. i've been curious about how digital things are built since the early internet days. that curiosity eventually turned into a job shipping products people touch every day.",
+      "these days i work at [[empreender]] on ecommerce products for brazilian merchants, mostly with react, next.js, typescript, and tailwind. i care a lot about **clean code**, careful ux, and picking tools that don't fight the problem.",
+      "i'm at my best when the work is concrete: take a rough idea, make it clear, make it fast, and leave it easier to change than how i found it. the stack is usually just the starting point.",
+      "if you look closely enough, though, you'll see that a lot of what i do is deciding **what not to add**.",
+    ],
+    closing: [
+      "this site holds work, experiments, and a few things that don't entirely belong in a résumé. not everything needs to.",
+      "anyway, i hope you enjoy :)",
+    ],
     projects: {
       py013: {
-        title: "Py013",
+        title: "py013",
         description:
-          "Landing page for the Python community of Baixada Santista.",
+          "landing page for the python community of baixada santista.",
       },
       rastreio: {
-        title: "Rastreio.net",
-        description: "Ecommerce shipment tracking management app.",
+        title: "rastreio.net",
+        description: "shipment tracking management for ecommerce teams.",
       },
       "area-do-cliente": {
-        title: "Área do Cliente",
-        description:
-          "Customizes the customer area in your ecommerce store.",
+        title: "área do cliente",
+        description: "customizable customer area for ecommerce stores.",
       },
       ovni: {
-        title: "OVNI",
+        title: "ovni",
         description:
-          "App for retailers and influencers to form sales partnerships.",
+          "partnerships between retailers and influencers, in one app.",
       },
       sttp: {
         title: "sttp",
-        description: "Dynamic start page for quick search.",
+        description: "a dynamic start page for quick search.",
       },
       caddie: {
-        title: "Caddie",
-        description:
-          "Landing page for Caddie's consulting and strategy services.",
+        title: "caddie",
+        description: "landing page for consulting and strategy services.",
       },
       abelha: {
-        title: "Sistema Abelha",
-        description:
-          "System for efficient management of real estate tables and data.",
+        title: "sistema abelha",
+        description: "real-estate tables and data, managed without the mess.",
       },
       sds: {
-        title: "SDS Wiki",
-        description:
-          "Technical documentation about SDS with Astro and fast search.",
+        title: "sds wiki",
+        description: "technical docs about sds, with fast search.",
       },
       "lojao-do-bras": {
-        title: "Sistema Lojão do Brás",
-        description:
-          "PHP backend for centralized meal-benefit (vale-refeição) management.",
+        title: "lojão do brás",
+        description: "php backend for centralized meal-benefit management.",
       },
     },
     experience: {
       empreender: {
-        location: "São Paulo, Brazil",
+        location: "são paulo, brazil",
         positions: {
           frontend: {
-            role: "Frontend Developer",
-            type: "Full-time",
-            highlights: [
-              "Developed and maintained the company's apps using React, Next.js, and Tailwind CSS.",
-              "Implemented responsive design and cross-browser compatibility.",
-              "Collaborated with the design team to implement new features and improve the user experience.",
-              "Optimized the apps for SEO and performance.",
-            ],
+            role: "frontend developer",
+            type: "full-time",
+            summary:
+              "shipping and maintaining product interfaces with react, next.js, and tailwind. responsive, performant, and close to the design team.",
           },
         },
       },
       botslab: {
-        location: "São Paulo, Brazil",
+        location: "são paulo, brazil",
         positions: {
           "rpa-python": {
-            role: "Python RPA Developer",
-            type: "Full-time",
-            highlights: [
-              "Automated third-party systems (McCain, SMSGroup) on Nimbi and Mercado Eletrônico platforms using RPA.",
-              "Developed and maintained automation solutions for purchasing systems to streamline operations.",
-              "Created RPA bots with Python, Selenium, and other automation tools to reduce manual work and improve efficiency.",
-            ],
+            role: "python rpa developer",
+            type: "full-time",
+            summary:
+              "automated purchasing workflows on nimbi and mercado eletrônico with python, selenium, and robot framework. less manual work, fewer broken nights.",
           },
         },
       },
       freelancer: {
-        location: "Brazil",
+        location: "brazil",
         positions: {
           "full-stack": {
-            role: "Full Stack Developer",
-            type: "Freelance",
-            highlights: [
-              "Developed and maintained freelance projects using Next.js, Astro, and modern web technologies.",
-              "Built custom websites and web applications with a focus on Next.js, plus WordPress when needed.",
-              "Implemented responsive designs and optimized projects for performance and SEO.",
-              "Delivered end-to-end solutions from design to deployment for various clients.",
-            ],
+            role: "full stack developer",
+            type: "freelance",
+            summary:
+              "end-to-end sites and apps for clients, mostly next.js and astro, sometimes wordpress, always with an eye on performance and seo.",
           },
         },
       },

@@ -5,16 +5,13 @@ import type { Locale } from "@/lib/i18n/config";
 import type { Portfolio } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { Hero } from "@/components/portfolio/hero";
-import { ExperienceSection } from "@/components/portfolio/experience-section";
-import {
-  ProjectsSection,
-  SkillsSection,
-} from "@/components/portfolio/projects-section";
+import { WorkSection } from "@/components/portfolio/work-section";
+import { BuiltSection } from "@/components/portfolio/built-section";
 import { FooterSection } from "@/components/portfolio/footer-section";
 import { LocaleSwitch } from "@/components/portfolio/locale-switch";
 import { DarkModeSwitch } from "@/components/portfolio/dark-mode-switch";
-import { GitHubActivityCalendar } from "@/components/portfolio/github-activity-calendar";
 import { initUiSound } from "@/lib/ui-sound";
+import { EdgeBlur } from "@/components/portfolio/edge-blur";
 
 const FADE_MS = 180;
 
@@ -57,11 +54,13 @@ export function PortfolioPage({
   }
 
   return (
-    <div className="root min-h-full">
-      <main className="mx-auto flex w-full max-w-[800px] flex-col px-5 py-10 sm:px-8 sm:py-16">
+    <div className="root relative min-h-full">
+      <EdgeBlur />
+
+      <main className="mx-auto flex w-full max-w-2xl flex-col px-5 py-12 sm:px-8 sm:py-20">
         <div
           className={cn(
-            "flex flex-col gap-16 transition-[opacity,filter,transform] duration-200 ease-out motion-reduce:transition-none",
+            "flex flex-col gap-16 transition-[opacity,filter,transform] duration-200 ease-out motion-reduce:transition-none sm:gap-20",
             visible
               ? "translate-y-0 opacity-100 blur-0"
               : "translate-y-[-2px] opacity-0 blur-[3px]",
@@ -77,15 +76,8 @@ export function PortfolioPage({
             }
           />
 
-          <GitHubActivityCalendar
-            username={portfolio.slug}
-            labels={portfolio.ui.github}
-            months={portfolio.ui.months}
-          />
-
-          <ExperienceSection portfolio={portfolio} />
-          <ProjectsSection portfolio={portfolio} />
-          <SkillsSection portfolio={portfolio} />
+          <WorkSection portfolio={portfolio} locale={locale} />
+          <BuiltSection portfolio={portfolio} />
           <FooterSection portfolio={portfolio} />
         </div>
       </main>
