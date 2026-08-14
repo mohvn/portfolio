@@ -41,7 +41,7 @@ export function Hero({
   return (
     <header className="flex flex-col gap-8">
       <div className="flex items-start justify-between gap-4">
-        <div className="flex min-w-0 flex-col gap-2">
+        <div className="flex min-w-0 flex-col">
           <h1 className="font-serif text-3xl tracking-tight text-grayscale-12 lowercase sm:text-4xl md:text-5xl">
             {portfolio.greeting}
           </h1>

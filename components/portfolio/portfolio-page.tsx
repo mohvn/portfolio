@@ -11,7 +11,6 @@ import { FooterSection } from "@/components/portfolio/footer-section";
 import { LocaleSwitch } from "@/components/portfolio/locale-switch";
 import { DarkModeSwitch } from "@/components/portfolio/dark-mode-switch";
 import { initUiSound } from "@/lib/ui-sound";
-import { EdgeBlur } from "@/components/portfolio/edge-blur";
 
 const FADE_MS = 180;
 
@@ -55,8 +54,6 @@ export function PortfolioPage({
 
   return (
     <div className="root relative min-h-full">
-      <EdgeBlur />
-
       <main className="mx-auto flex w-full max-w-2xl flex-col px-5 py-12 sm:px-8 sm:py-20">
         <div
           className={cn(

@@ -20,50 +20,61 @@
   --color-grayscale-11: var(--grayscale-11);
   --color-grayscale-12: var(--grayscale-12);
 
-  --color-teal-9: #0d9488;
-  --color-blue-9: #3b82f6;
-  --color-orange-9: #f97316;
-  --color-grass-9: #65a30d;
-  --color-accent-4: #e6e6e6;
-  --color-accent-9: #3b3b3b;
-  --color-accent-10: #2e2e2e;
-  --color-accent-12: #fafafa;
+  --color-teal-9: #6b8f71;
+  --color-blue-9: #6d7f8c;
+  --color-orange-9: var(--accent-rust);
+  --color-grass-9: #7a8f5c;
+  --color-accent-4: var(--accent-4);
+  --color-accent-9: var(--accent-9);
+  --color-accent-10: var(--accent-10);
+  --color-accent-12: var(--accent-12);
 
   --text-tiny: 0.625rem;
 }
 
+/* Warm rustic brown scale — paper in light, espresso in dark */
 :root {
-  --grayscale-1: #fcfcfc;
-  --grayscale-2: #f9f9f9;
-  --grayscale-3: #f0f0f0;
-  --grayscale-4: #e8e8e8;
-  --grayscale-5: #e0e0e0;
-  --grayscale-6: #d9d9d9;
-  --grayscale-7: #cecece;
-  --grayscale-8: #bbbbbb;
-  --grayscale-9: #8d8d8d;
-  --grayscale-10: #838383;
-  --grayscale-11: #646464;
-  --grayscale-12: #202020;
+  --grayscale-1: #efe6d8;
+  --grayscale-2: #e7dccb;
+  --grayscale-3: #d9cdb8;
+  --grayscale-4: #cbbda6;
+  --grayscale-5: #bcae95;
+  --grayscale-6: #ad9e84;
+  --grayscale-7: #9a8a70;
+  --grayscale-8: #85755c;
+  --grayscale-9: #6f614c;
+  --grayscale-10: #5c4f3e;
+  --grayscale-11: #3f3429;
+  --grayscale-12: #241c15;
+
+  --accent-rust: #9a5a2a;
+  --accent-4: #d9cdb8;
+  --accent-9: #3f3429;
+  --accent-10: #2f261e;
+  --accent-12: #efe6d8;
+  --mark-underline: color-mix(in srgb, var(--accent-rust) 35%, transparent);
 }
 
 .dark {
-  --grayscale-1: #111111;
-  --grayscale-2: #191919;
-  --grayscale-3: #222222;
-  --grayscale-4: #2a2a2a;
-  --grayscale-5: #313131;
-  --grayscale-6: #3a3a3a;
-  --grayscale-7: #484848;
-  --grayscale-8: #606060;
-  --grayscale-9: #6e6e6e;
-  --grayscale-10: #7b7b7b;
-  --grayscale-11: #b4b4b4;
-  --grayscale-12: #eeeeee;
-  --color-accent-4: #2e2e2e;
-  --color-accent-9: #eeeeee;
-  --color-accent-10: #f5f5f5;
-  --color-accent-12: #111111;
+  --grayscale-1: #14100c;
+  --grayscale-2: #1b1510;
+  --grayscale-3: #241c15;
+  --grayscale-4: #2e241c;
+  --grayscale-5: #382c22;
+  --grayscale-6: #45362a;
+  --grayscale-7: #574536;
+  --grayscale-8: #6e5744;
+  --grayscale-9: #8a7160;
+  --grayscale-10: #a38a75;
+  --grayscale-11: #d2c0a8;
+  --grayscale-12: #f0e4d4;
+
+  --accent-rust: #c47a3a;
+  --accent-4: #2e241c;
+  --accent-9: #f0e4d4;
+  --accent-10: #f6ecdf;
+  --accent-12: #14100c;
+  --mark-underline: color-mix(in srgb, var(--accent-rust) 40%, transparent);
 }
 
 @layer base {
@@ -73,6 +84,11 @@
 
   html {
     @apply h-full antialiased;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   body {
@@ -83,166 +99,11 @@
 @layer utilities {
   .small-shadow {
     box-shadow:
-      0 0 0 1px rgb(0 0 0 / 0.03),
-      0 1px 2px rgb(0 0 0 / 0.04);
+      0 0 0 1px color-mix(in srgb, var(--grayscale-12) 6%, transparent),
+      0 1px 2px color-mix(in srgb, var(--grayscale-12) 8%, transparent);
   }
 
   .dark .small-shadow {
     box-shadow: none;
   }
-}
-
-/* Progressive edge blur — technique from cmrg.me (banded masks + backdrop-filter) */
-.blur-overlay {
-  margin: -1px 0;
-}
-
-.blur-overlay > div,
-.blur-overlay::before,
-.blur-overlay::after {
-  position: absolute;
-  inset: 0;
-}
-
-.blur-overlay::before {
-  content: "";
-  z-index: 1;
-  backdrop-filter: blur(0.5px);
-  -webkit-backdrop-filter: blur(0.5px);
-  mask: linear-gradient(
-    to bottom,
-    transparent 0%,
-    #fff 12.5%,
-    #fff 25%,
-    transparent 37.5%
-  );
-  -webkit-mask: linear-gradient(
-    to bottom,
-    transparent 0%,
-    #fff 12.5%,
-    #fff 25%,
-    transparent 37.5%
-  );
-}
-
-.blur-overlay > div:first-of-type {
-  z-index: 2;
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
-  mask: linear-gradient(
-    to bottom,
-    transparent 12.5%,
-    #fff 25%,
-    #fff 37.5%,
-    transparent 50%
-  );
-  -webkit-mask: linear-gradient(
-    to bottom,
-    transparent 12.5%,
-    #fff 25%,
-    #fff 37.5%,
-    transparent 50%
-  );
-}
-
-.blur-overlay > div:nth-of-type(2) {
-  z-index: 3;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  mask: linear-gradient(
-    to bottom,
-    transparent 25%,
-    #fff 37.5%,
-    #fff 50%,
-    transparent 62.5%
-  );
-  -webkit-mask: linear-gradient(
-    to bottom,
-    transparent 25%,
-    #fff 37.5%,
-    #fff 50%,
-    transparent 62.5%
-  );
-}
-
-.blur-overlay > div:nth-of-type(3) {
-  z-index: 4;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  mask: linear-gradient(
-    to bottom,
-    transparent 37.5%,
-    #fff 50%,
-    #fff 62.5%,
-    transparent 75%
-  );
-  -webkit-mask: linear-gradient(
-    to bottom,
-    transparent 37.5%,
-    #fff 50%,
-    #fff 62.5%,
-    transparent 75%
-  );
-}
-
-.blur-overlay > div:nth-of-type(4) {
-  z-index: 5;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  mask: linear-gradient(
-    to bottom,
-    transparent 50%,
-    #fff 62.5%,
-    #fff 75%,
-    transparent 87.5%
-  );
-  -webkit-mask: linear-gradient(
-    to bottom,
-    transparent 50%,
-    #fff 62.5%,
-    #fff 75%,
-    transparent 87.5%
-  );
-}
-
-.blur-overlay > div:nth-of-type(5) {
-  z-index: 6;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  mask: linear-gradient(
-    to bottom,
-    transparent 62.5%,
-    #fff 75%,
-    #fff 87.5%,
-    transparent 100%
-  );
-  -webkit-mask: linear-gradient(
-    to bottom,
-    transparent 62.5%,
-    #fff 75%,
-    #fff 87.5%,
-    transparent 100%
-  );
-}
-
-.blur-overlay > div:nth-of-type(6) {
-  z-index: 7;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  mask: linear-gradient(to bottom, transparent 75%, #fff 87.5%, #fff 100%);
-  -webkit-mask: linear-gradient(
-    to bottom,
-    transparent 75%,
-    #fff 87.5%,
-    #fff 100%
-  );
-}
-
-.blur-overlay::after {
-  content: "";
-  z-index: 8;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  mask: linear-gradient(to bottom, transparent 87.5%, #fff 100%);
-  -webkit-mask: linear-gradient(to bottom, transparent 87.5%, #fff 100%);
 }

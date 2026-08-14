@@ -21,7 +21,7 @@ export function RoughMark({ children }: { children: ReactNode }) {
       shown = true;
       annotation = annotate(el, {
         type: "underline",
-        color: "color-mix(in srgb, #f97316 28%, transparent)",
+        color: "var(--mark-underline)",
         strokeWidth: 1.5,
         padding: [0, 1],
         iterations: 3,

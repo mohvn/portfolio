@@ -36,7 +36,7 @@ export function EdgeBlur() {
         aria-hidden
         className={cn(
           "blur-overlay pointer-events-none fixed top-0 left-0 z-50 h-[clamp(40px,10vh,160px)] w-full origin-bottom -translate-y-full rotate-180",
-          "bg-linear-to-b from-transparent to-grayscale-1 **:transform-gpu",
+          "**:transform-gpu",
         )}
       >
         <BlurLayers />
@@ -45,7 +45,7 @@ export function EdgeBlur() {
         aria-hidden
         className={cn(
           "blur-overlay pointer-events-none fixed bottom-0 left-0 z-50 h-[clamp(40px,10vh,160px)] w-full origin-bottom",
-          "bg-linear-to-b from-transparent to-grayscale-1 **:transform-gpu",
+          "**:transform-gpu",
         )}
       >
         <BlurLayers />

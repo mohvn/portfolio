@@ -41,10 +41,10 @@ export const en: LocaleCopy = {
     greeting: "hi, i'm mohan elias",
     tagline: "i make interfaces that don't look like ai",
     paragraphs: [
-      "frontend developer from são paulo. i've been curious about how digital things are built since the early internet days. that curiosity eventually turned into a job shipping products people touch every day.",
-      "these days i work at [[empreender]] on ecommerce products for brazilian merchants, mostly with react, next.js, typescript, and tailwind. i care a lot about **clean code**, careful ux, and picking tools that don't fight the problem.",
-      "i'm at my best when the work is concrete: take a rough idea, make it clear, make it fast, and leave it easier to change than how i found it. the stack is usually just the starting point.",
-      "if you look closely enough, though, you'll see that a lot of what i do is deciding **what not to add**.",
+      "i'm based in são paulo and i live off frontend. i started by poking other people's sites to see how they were built, then became the person you call for a landing page, a customer area, or a useful hack under deadline.",
+      "these days i'm at [[empreender]] on apps brazilian shop owners actually open: tracking, checkout, reviews, the kind of stuff that runs on nuvemshop, shopify, and friends. day-to-day stack: react, next.js, typescript, tailwind.",
+      "what keeps me at the keyboard is the annoying stuff: layouts that die on a client's phone, forms nobody understands, screens that load too much. i like taking a messy figma and leaving something a merchant can use without a tutorial.",
+      "when there's time left, i still do freelance and small side projects. and yeah, a lot of the job is deciding **what not to put** on the screen.",
     ],
     closing: [
       "this site holds work, experiments, and a few things that don't entirely belong in a résumé. not everything needs to.",
