@@ -6,6 +6,7 @@ import {
   experienceShared,
   portfolioBase,
   projectsShared,
+  skillGroupsShared,
 } from "../portfolio-shared";
 
 const dictionaries: Record<Locale, LocaleCopy> = {
@@ -44,6 +45,10 @@ export function getPortfolio(locale: Locale) {
         })),
       };
     }),
+    skills: skillGroupsShared.map((group) => ({
+      ...group,
+      title: t.ui.skillGroups[group.id],
+    })),
     contact: portfolioBase.contact,
     ui: t.ui,
     meta: t.meta,
@@ -51,3 +56,5 @@ export function getPortfolio(locale: Locale) {
 }
 
 export type Portfolio = ReturnType<typeof getPortfolio>;
+export type PortfolioExperience = Portfolio["experience"][number];
+export type PortfolioPosition = PortfolioExperience["positions"][number];

@@ -4,20 +4,34 @@ export type LocaleCopy = {
     description: string;
   };
   ui: {
-    darkMode: string;
-    toggleDarkMode: string;
     localeSwitch: string;
     present: string;
     remote: string;
     viewProject: string;
+    seeMore: string;
+    seeLess: string;
+    bookCall: string;
+    messageOn: string;
+    lastYear: string;
+    expandJob: string;
     projectStatus: {
       live: string;
       building: string;
       private: string;
     };
     sections: {
-      work: { title: string; lead: string };
-      built: { title: string; lead: string };
+      performance: string;
+      experience: string;
+      skills: string;
+      projects: string;
+    };
+    skillGroups: {
+      language: string;
+      frontend: string;
+      backend: string;
+      infrastructure: string;
+      workflow: string;
+      design: string;
     };
     footer: {
       note: string;
@@ -44,7 +58,7 @@ export type LocaleCopy = {
           {
             role: string;
             type: string;
-            summary: string;
+            bullets: string[];
           }
         >;
       }

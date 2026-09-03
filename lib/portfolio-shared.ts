@@ -18,46 +18,55 @@ export const projectsShared = [
     id: "py013",
     href: "https://www.py013.com.br",
     status: "live" as const,
+    icon: "users",
   },
   {
     id: "rastreio",
     href: "https://get.rastreio.net",
     status: "building" as const,
+    icon: "package",
   },
   {
     id: "area-do-cliente",
     href: "https://app.areadocliente.com.br/inicio",
     status: "live" as const,
+    icon: "layout-dashboard",
   },
   {
     id: "ovni",
     href: "https://app.ovni.com.br",
     status: "live" as const,
+    icon: "sparkles",
   },
   {
     id: "sttp",
     href: "https://mohvn.github.io/sttp",
     status: "live" as const,
+    icon: "search",
   },
   {
     id: "caddie",
     href: "https://www.caddieestrategia.com.br",
     status: "live" as const,
+    icon: "briefcase",
   },
   {
     id: "abelha",
     href: "https://www.sistema-abelha.com.br",
     status: "live" as const,
+    icon: "table",
   },
   {
     id: "sds",
     href: "#",
     status: "live" as const,
+    icon: "book-open",
   },
   {
     id: "lojao-do-bras",
     href: "#",
     status: "private" as const,
+    icon: "utensils",
   },
 ] as const;
 
@@ -68,6 +77,7 @@ export const experienceShared = [
     href: "https://empreender.com.br/",
     remote: true,
     current: true,
+    icon: "shopping-bag",
     logo: withBasePath("/images/empreender-logo.jpg"),
     positions: [
       {
@@ -85,6 +95,7 @@ export const experienceShared = [
     href: "https://www.botslab.com/",
     remote: true,
     current: false,
+    icon: "bot",
     logo: withBasePath("/images/botslab-logo.jpg"),
     positions: [
       {
@@ -100,7 +111,8 @@ export const experienceShared = [
     id: "freelancer",
     name: "Freelancer",
     remote: true,
-    current: true,
+    current: false,
+    icon: "briefcase",
     positions: [
       {
         id: "full-stack",
@@ -112,3 +124,128 @@ export const experienceShared = [
     ],
   },
 ] as const;
+
+export const skillGroupsShared = [
+  {
+    id: "language",
+    items: [
+      {
+        name: "TypeScript",
+        href: "https://www.typescriptlang.org",
+        icon: "simple-icons:typescript",
+      },
+      {
+        name: "JavaScript",
+        href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+        icon: "simple-icons:javascript",
+      },
+      {
+        name: "Python",
+        href: "https://www.python.org",
+        icon: "simple-icons:python",
+      },
+    ],
+  },
+  {
+    id: "frontend",
+    items: [
+      {
+        name: "React",
+        href: "https://react.dev",
+        icon: "simple-icons:react",
+      },
+      {
+        name: "Next.js",
+        href: "https://nextjs.org",
+        icon: "simple-icons:nextdotjs",
+      },
+      {
+        name: "Tailwind CSS",
+        href: "https://tailwindcss.com",
+        icon: "simple-icons:tailwindcss",
+      },
+      {
+        name: "shadcn/ui",
+        href: "https://ui.shadcn.com",
+        icon: "simple-icons:shadcnui",
+      },
+      {
+        name: "Astro",
+        href: "https://astro.build",
+        icon: "simple-icons:astro",
+      },
+    ],
+  },
+  {
+    id: "backend",
+    items: [
+      {
+        name: "Node.js",
+        href: "https://nodejs.org",
+        icon: "simple-icons:nodedotjs",
+      },
+      {
+        name: "PHP",
+        href: "https://www.php.net",
+        icon: "simple-icons:php",
+      },
+      {
+        name: "PostgreSQL",
+        href: "https://www.postgresql.org",
+        icon: "simple-icons:postgresql",
+      },
+    ],
+  },
+  {
+    id: "infrastructure",
+    items: [
+      {
+        name: "Vercel",
+        href: "https://vercel.com",
+        icon: "simple-icons:vercel",
+      },
+      {
+        name: "Linux",
+        href: "https://kernel.org",
+        icon: "simple-icons:linux",
+      },
+      {
+        name: "Docker",
+        href: "https://www.docker.com",
+        icon: "simple-icons:docker",
+      },
+    ],
+  },
+  {
+    id: "workflow",
+    items: [
+      {
+        name: "GitHub",
+        href: "https://github.com",
+        icon: "simple-icons:github",
+      },
+      {
+        name: "Figma",
+        href: "https://www.figma.com",
+        icon: "simple-icons:figma",
+      },
+      {
+        name: "WordPress",
+        href: "https://wordpress.org",
+        icon: "simple-icons:wordpress",
+      },
+    ],
+  },
+  {
+    id: "design",
+    items: [
+      {
+        name: "Figma",
+        href: "https://www.figma.com",
+        icon: "simple-icons:figma",
+      },
+    ],
+  },
+] as const;
+
+export type SkillGroupId = (typeof skillGroupsShared)[number]["id"];

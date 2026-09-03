@@ -2,125 +2,134 @@ import type { LocaleCopy } from "../types";
 
 export const ptBR: LocaleCopy = {
   meta: {
-    title: "mohan elias",
-    description: "o site pessoal de mohan elias.",
+    title: "Mohan Elias – Desenvolvedor frontend",
+    description:
+      "Mohan. Frontend em São Paulo, na Empreender. Apps que lojista brasileiro utiliza de verdade — e interfaces que não pareçam IA.",
   },
   ui: {
-    darkMode: "modo escuro",
-    toggleDarkMode: "alternar modo escuro",
-    localeSwitch: "idioma",
-    present: "atual",
-    remote: "remoto",
-    viewProject: "abrir",
+    localeSwitch: "Idioma",
+    present: "Agora",
+    remote: "Remoto",
+    viewProject: "Abrir",
+    seeMore: "Ver mais",
+    seeLess: "Ver menos",
+    bookCall: "Mandar um email",
+    messageOn: "Mensagem no",
+    lastYear: "no último ano",
+    expandJob: "Expandir detalhes de {company}",
     projectStatus: {
       live: "no ar",
       building: "em construção",
       private: "privado",
     },
     sections: {
-      work: {
-        title: "onde eu estive",
-        lead: "de sites freelance e automações rpa até interfaces de produto na empreender, ainda entregando coisas que pessoas de verdade usam.",
-      },
-      built: {
-        title: "coisas que eu construí",
-        lead: "produtos, páginas e side projects que saíram do editor e foram pro mundo. uns barulhentos, outros quietos.",
-      },
+      performance: "Performance",
+      experience: "Experiência",
+      skills: "Skills",
+      projects: "Projetos",
+    },
+    skillGroups: {
+      language: "Linguagem",
+      frontend: "Frontend",
+      backend: "Backend",
+      infrastructure: "Infraestrutura",
+      workflow: "Workflow",
+      design: "Design",
     },
     footer: {
-      note: "se você chegou até aqui, pode mandar um oi. eu respondo email, e geralmente estou entre um refactor e um café.",
-      github: "github",
-      linkedin: "linkedin",
-      email: "email",
-      copyright: "© {year} mohan elias",
+      note: "Se você chegou até aqui, pode mandar um oi.",
+      github: "GitHub",
+      linkedin: "LinkedIn",
+      email: "Email",
+      copyright: "© {year} Mohan Elias",
     },
   },
   copy: {
-    role: "desenvolvedor frontend",
-    location: "são paulo, brasil",
-    greeting: "oi, eu sou o mohan",
-    tagline: "eu faço interfaces sem cara de ia",
+    role: "Desenvolvedor frontend",
+    location: "São Paulo, Brasil",
+    greeting: "Mohan Elias",
+    tagline: "Desenvolvedor frontend",
     paragraphs: [
-      "desenvolvedor frontend de são paulo. desde os primórdios da internet eu sou curioso em como as coisas digitais eram feitas. essa curiosidade virou trabalho entregando produtos que as pessoas usam todo dia.",
-      "hoje eu trabalho na [[empreender]] em produtos de ecommerce pra lojistas no brasil, principalmente com react, next.js, typescript e tailwind. me importo com **código limpo**, ux cuidadosa e ferramentas que não brigam com o problema.",
-      "eu rendo mais quando o trabalho é concreto: pegar uma ideia bagunçada, deixar clara, rápida, e mais fácil de mudar do que eu encontrei. a stack costuma ser só o ponto de partida.",
-      "se você olhar com atenção, vai perceber que boa parte do que eu faço é decidir **o que não adicionar**.",
+      "Mohan. Frontend em São Paulo, na [[empreender]]. Faço apps que lojista brasileiro utiliza de verdade: rastreio, checkout, avaliações, e ainda pego uns freelances.",
+      "Obcecado por interfaces que não pareçam IA. E pra falar a verdade, a maior parte do meu trabalho é decidir **o que não entra** na tela.",
     ],
-    closing: [
-      "esse site guarda trabalho, experimentos e algumas coisas que não cabem direito num currículo. nem tudo precisa caber.",
-      "enfim, espero que você goste :)",
-    ],
+    closing: [],
     projects: {
       py013: {
         title: "py013",
-        description:
-          "landing page da comunidade python da baixada santista.",
+        description: "Landing page da comunidade Python da Baixada Santista.",
       },
       rastreio: {
-        title: "rastreio.net",
-        description: "gestão de rastreio pra times de ecommerce.",
+        title: "Rastreio.net",
+        description: "Gestão de rastreio pra times de ecommerce.",
       },
       "area-do-cliente": {
-        title: "área do cliente",
-        description: "área do cliente customizável pra lojas de ecommerce.",
+        title: "Área do Cliente",
+        description: "Área do cliente customizável pra lojas de ecommerce.",
       },
       ovni: {
-        title: "ovni",
-        description:
-          "parcerias entre varejistas e influenciadores, num app só.",
+        title: "OVNI",
+        description: "Parcerias entre varejistas e influenciadores, num app só.",
       },
       sttp: {
-        title: "sttp",
-        description: "start page dinâmica pra pesquisa rápida.",
+        title: "STTP",
+        description: "Start page dinâmica pra pesquisa rápida.",
       },
       caddie: {
-        title: "caddie",
-        description: "landing page de consultoria e estratégia.",
+        title: "Caddie",
+        description: "Landing page de consultoria e estratégia.",
       },
       abelha: {
-        title: "sistema abelha",
-        description: "tabelas e dados imobiliários, sem a bagunça.",
+        title: "Sistema Abelha",
+        description: "Tabelas e dados imobiliários, sem a bagunça.",
       },
       sds: {
-        title: "sds wiki",
-        description: "docs técnicas sobre sds, com busca rápida.",
+        title: "SDS Wiki",
+        description: "Docs técnicas sobre SDS, com busca rápida.",
       },
       "lojao-do-bras": {
-        title: "lojão do brás",
-        description: "backend em php pra gestão de vale-refeição.",
+        title: "Lojão do Brás",
+        description: "Backend em PHP pra gestão de vale-refeição.",
       },
     },
     experience: {
       empreender: {
-        location: "são paulo, brasil",
+        location: "São Paulo, Brasil",
         positions: {
           frontend: {
-            role: "desenvolvedor frontend",
-            type: "tempo integral",
-            summary:
-              "interfaces de produto com react, next.js e tailwind. responsivas, performáticas e perto do time de design.",
+            role: "Desenvolvedor frontend",
+            type: "Tempo integral",
+            bullets: [
+              "Interfaces de produto com React, Next.js e Tailwind — responsivas, performáticas e perto do time de design.",
+              "Apps que lojistas brasileiros realmente abrem: rastreio, checkout, avaliações, na Nuvemshop, Shopify e afins.",
+              "Pegar um Figma bagunçado e deixar uma tela que o lojista usa sem tutorial.",
+            ],
           },
         },
       },
       botslab: {
-        location: "são paulo, brasil",
+        location: "São Paulo, Brasil",
         positions: {
           "rpa-python": {
-            role: "desenvolvedor rpa python",
-            type: "tempo integral",
-            summary:
-              "automações de compras no nimbi e mercado eletrônico com python, selenium e robot framework. menos trabalho manual, menos madrugada quebrada.",
+            role: "Desenvolvedor RPA Python",
+            type: "Tempo integral",
+            bullets: [
+              "Automações de compras no Nimbi e Mercado Eletrônico com Python, Selenium e Robot Framework.",
+              "Menos trabalho manual nos fluxos de procurement, menos madrugada quebrada.",
+            ],
           },
         },
       },
       freelancer: {
-        location: "brasil",
+        location: "Brasil",
         positions: {
           "full-stack": {
-            role: "desenvolvedor full stack",
-            type: "freelance",
-            summary:
-              "sites e apps ponta a ponta, sobretudo next.js e astro, às vezes wordpress, sempre de olho em performance e seo.",
+            role: "Desenvolvedor full-stack",
+            type: "Freelance",
+            bullets: [
+              "Sites e apps ponta a ponta, sobretudo Next.js e Astro, às vezes WordPress.",
+              "Sempre de olho em performance, SEO, e se a coisa realmente sai do editor.",
+            ],
           },
         },
       },

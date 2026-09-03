@@ -2,125 +2,134 @@ import type { LocaleCopy } from "../types";
 
 export const en: LocaleCopy = {
   meta: {
-    title: "mohan elias",
-    description: "the personal website of mohan elias.",
+    title: "Mohan Elias – Frontend developer",
+    description:
+      "Mohan. Frontend in São Paulo, at Empreender. Apps Brazilian shopkeepers actually use — and interfaces that don't look like AI.",
   },
   ui: {
-    darkMode: "dark mode",
-    toggleDarkMode: "toggle dark mode",
-    localeSwitch: "language",
-    present: "present",
-    remote: "remote",
-    viewProject: "open",
+    localeSwitch: "Language",
+    present: "Now",
+    remote: "Remote",
+    viewProject: "Open",
+    seeMore: "See more",
+    seeLess: "See less",
+    bookCall: "Send an email",
+    messageOn: "Message on",
+    lastYear: "last year",
+    expandJob: "Expand details for {company}",
     projectStatus: {
       live: "live",
       building: "building",
       private: "private",
     },
     sections: {
-      work: {
-        title: "where i've been",
-        lead: "from freelance sites and rpa automations to product interfaces at empreender, still shipping things people actually use.",
-      },
-      built: {
-        title: "things i built",
-        lead: "products, pages, and side projects that made it out of my editor and into the world. some loud, some quiet.",
-      },
+      performance: "Performance",
+      experience: "Experience",
+      skills: "Skills",
+      projects: "Projects",
+    },
+    skillGroups: {
+      language: "Language",
+      frontend: "Frontend",
+      backend: "Backend",
+      infrastructure: "Infrastructure",
+      workflow: "Workflow",
+      design: "Design",
     },
     footer: {
-      note: "if you made it this far, you might as well say hi. i answer email, and i'm usually somewhere between a refactor and a coffee.",
-      github: "github",
-      linkedin: "linkedin",
-      email: "email",
-      copyright: "© {year} mohan elias",
+      note: "If you made it this far, you might as well say hi.",
+      github: "GitHub",
+      linkedin: "LinkedIn",
+      email: "Email",
+      copyright: "© {year} Mohan Elias",
     },
   },
   copy: {
-    role: "frontend developer",
-    location: "são paulo, brazil",
-    greeting: "hi, i'm mohan elias",
-    tagline: "i make interfaces that don't look like ai",
+    role: "Frontend developer",
+    location: "São Paulo, Brazil",
+    greeting: "Mohan Elias",
+    tagline: "Frontend developer",
     paragraphs: [
-      "i'm based in são paulo and i live off frontend. i started by poking other people's sites to see how they were built, then became the person you call for a landing page, a customer area, or a useful hack under deadline.",
-      "these days i'm at [[empreender]] on apps brazilian shop owners actually open: tracking, checkout, reviews, the kind of stuff that runs on nuvemshop, shopify, and friends. day-to-day stack: react, next.js, typescript, tailwind.",
-      "what keeps me at the keyboard is the annoying stuff: layouts that die on a client's phone, forms nobody understands, screens that load too much. i like taking a messy figma and leaving something a merchant can use without a tutorial.",
-      "when there's time left, i still do freelance and small side projects. and yeah, a lot of the job is deciding **what not to put** on the screen.",
+      "Mohan. Frontend in São Paulo, at [[empreender]]. I make apps Brazilian shopkeepers actually use: tracking, checkout, reviews, and I still take on freelance.",
+      "Obsessed with interfaces that don't look like AI. And honestly, most of my work is deciding **what doesn't make it** onto the screen.",
     ],
-    closing: [
-      "this site holds work, experiments, and a few things that don't entirely belong in a résumé. not everything needs to.",
-      "anyway, i hope you enjoy :)",
-    ],
+    closing: [],
     projects: {
       py013: {
         title: "py013",
-        description:
-          "landing page for the python community of baixada santista.",
+        description: "Landing page for the Python community of Baixada Santista.",
       },
       rastreio: {
-        title: "rastreio.net",
-        description: "shipment tracking management for ecommerce teams.",
+        title: "Rastreio.net",
+        description: "Shipment tracking management for ecommerce teams.",
       },
       "area-do-cliente": {
-        title: "área do cliente",
-        description: "customizable customer area for ecommerce stores.",
+        title: "Área do Cliente",
+        description: "Customizable customer area for ecommerce stores.",
       },
       ovni: {
-        title: "ovni",
-        description:
-          "partnerships between retailers and influencers, in one app.",
+        title: "OVNI",
+        description: "Partnerships between retailers and influencers, in one app.",
       },
       sttp: {
-        title: "sttp",
-        description: "a dynamic start page for quick search.",
+        title: "STTP",
+        description: "A dynamic start page for quick search.",
       },
       caddie: {
-        title: "caddie",
-        description: "landing page for consulting and strategy services.",
+        title: "Caddie",
+        description: "Landing page for consulting and strategy services.",
       },
       abelha: {
-        title: "sistema abelha",
-        description: "real-estate tables and data, managed without the mess.",
+        title: "Sistema Abelha",
+        description: "Real-estate tables and data, managed without the mess.",
       },
       sds: {
-        title: "sds wiki",
-        description: "technical docs about sds, with fast search.",
+        title: "SDS Wiki",
+        description: "Technical docs about SDS, with fast search.",
       },
       "lojao-do-bras": {
-        title: "lojão do brás",
-        description: "php backend for centralized meal-benefit management.",
+        title: "Lojão do Brás",
+        description: "PHP backend for centralized meal-benefit management.",
       },
     },
     experience: {
       empreender: {
-        location: "são paulo, brazil",
+        location: "São Paulo, Brazil",
         positions: {
           frontend: {
-            role: "frontend developer",
-            type: "full-time",
-            summary:
-              "shipping and maintaining product interfaces with react, next.js, and tailwind. responsive, performant, and close to the design team.",
+            role: "Frontend developer",
+            type: "Full-time",
+            bullets: [
+              "Shipping and maintaining product interfaces with React, Next.js, and Tailwind — responsive, performant, and close to the design team.",
+              "Building apps Brazilian shop owners actually open: tracking, checkout, reviews, on Nuvemshop, Shopify, and friends.",
+              "Turning messy Figma into screens a merchant can use without a tutorial.",
+            ],
           },
         },
       },
       botslab: {
-        location: "são paulo, brazil",
+        location: "São Paulo, Brazil",
         positions: {
           "rpa-python": {
-            role: "python rpa developer",
-            type: "full-time",
-            summary:
-              "automated purchasing workflows on nimbi and mercado eletrônico with python, selenium, and robot framework. less manual work, fewer broken nights.",
+            role: "Python RPA developer",
+            type: "Full-time",
+            bullets: [
+              "Automated purchasing workflows on Nimbi and Mercado Eletrônico with Python, Selenium, and Robot Framework.",
+              "Cut manual work on procurement flows and the broken nights that came with it.",
+            ],
           },
         },
       },
       freelancer: {
-        location: "brazil",
+        location: "Brazil",
         positions: {
           "full-stack": {
-            role: "full stack developer",
-            type: "freelance",
-            summary:
-              "end-to-end sites and apps for clients, mostly next.js and astro, sometimes wordpress, always with an eye on performance and seo.",
+            role: "Full-stack developer",
+            type: "Freelance",
+            bullets: [
+              "Designing and developing web applications from scratch for clients — mostly Next.js and Astro, sometimes WordPress.",
+              "Always with an eye on performance, SEO, and whether the thing actually ships.",
+            ],
           },
         },
       },

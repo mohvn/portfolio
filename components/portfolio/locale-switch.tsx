@@ -1,7 +1,7 @@
 "use client";
 
-import { locales, type Locale } from "@/lib/i18n/config";
-import { cn } from "@/lib/utils";
+import type { Locale } from "@/lib/i18n/config";
+import { Button } from "@/components/ui/button";
 import { playUiSound } from "@/lib/ui-sound";
 
 const labels: Record<Locale, string> = {
@@ -16,36 +16,23 @@ export function LocaleSwitch({
   locale: Locale;
   onSwitch: (locale: Locale) => void;
 }) {
-  function handleSwitch(next: Locale) {
-    if (next === locale) return;
+  const next = locale === "en" ? "pt-BR" : "en";
+
+  function handleSwitch() {
     playUiSound("whisper");
     onSwitch(next);
   }
 
   return (
-    <div className="flex shrink-0 items-center gap-1 rounded-lg border border-grayscale-3 bg-grayscale-1 p-0.5 dark:border-grayscale-5 dark:bg-grayscale-3">
-      {locales.map((item) => {
-        const isActive = locale === item;
-
-        return (
-          <button
-            key={item}
-            type="button"
-            onClick={() => handleSwitch(item)}
-            data-cuelume-hover="tick"
-            className={cn(
-              "rounded-md px-2 py-0.5 font-mono text-[10px] font-medium uppercase transition-colors",
-              isActive
-                ? "bg-grayscale-12 text-grayscale-1 dark:bg-grayscale-11 dark:text-grayscale-12"
-                : "text-grayscale-10 hover:text-grayscale-12",
-            )}
-            aria-pressed={isActive}
-            aria-label={`Switch language to ${labels[item]}`}
-          >
-            {labels[item]}
-          </button>
-        );
-      })}
-    </div>
+    <Button
+      type="button"
+      variant="ghost"
+      size="icon-sm"
+      onClick={handleSwitch}
+      aria-label={`Switch language to ${labels[next]}`}
+      className="squircle size-7 rounded-[min(var(--radius-md),12px)] font-mono text-[10px] font-medium text-foreground-secondary hover:text-foreground"
+    >
+      {labels[locale]}
+    </Button>
   );
 }
