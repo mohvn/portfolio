@@ -144,11 +144,12 @@ export class World {
     for (let i = 0; i < sharkCount; i++) {
       const { kind, size } = this.sharkSpecs[i];
       const length = baseLength * size;
-      const orbitRadius = minSide * rand(0.28, 0.4);
+      const orbitRadius = minSide * rand(0.22, 0.36);
       const a = (i / sharkCount) * TAU + rand(-0.4, 0.4);
       const orbitDir: 1 | -1 = i % 2 === 0 ? 1 : -1;
       const x = W / 2 + Math.cos(a) * orbitRadius * (W / minSide) * 0.9;
-      const y = H / 2 + Math.sin(a) * orbitRadius;
+      // Footer clips the lower half, so keep patrols in the visible band.
+      const y = H * 0.28 + Math.sin(a) * orbitRadius * 0.7;
       const heading = a + (orbitDir * Math.PI) / 2;
       const nodes = new Float32Array(SHARK_NODES * 2);
       const seg = length / (SHARK_NODES - 1);
@@ -460,7 +461,7 @@ export class World {
     const { sharks, width: W, height: H, time } = this;
     const minSide = Math.min(W, H);
     const cxW = W / 2;
-    const cyW = H / 2;
+    const cyW = H * 0.28;
 
     for (const sh of sharks) {
       const L = sh.length;

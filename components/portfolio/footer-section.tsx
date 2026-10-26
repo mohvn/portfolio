@@ -5,9 +5,13 @@ import type { SharkSpec } from "@/lib/ascii-sharks/world";
 
 const SHARKS: SharkSpec[] = [
   { kind: "thresher", size: 1 },
-  { kind: "hammerhead", size: 0.9 },
+  { kind: "hammerhead", size: 0.92 },
+  { kind: "classic", size: 0.88 },
+  { kind: "tiger", size: 0.84 },
   { kind: "mako", size: 0.8 },
-  { kind: "nurse", size: 0.7 },
+  { kind: "greathammer", size: 0.76 },
+  { kind: "zebra", size: 0.72 },
+  { kind: "nurse", size: 0.68 },
 ];
 
 export function FooterSection() {
