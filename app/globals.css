@@ -68,27 +68,27 @@
   --mark-radius: calc(50% * var(--corner-scale));
   --cell-radius: calc(30% * var(--corner-scale));
 
-  --background: #14110e;
-  --foreground: #efe8dc;
-  --card: #1c1814;
-  --card-foreground: #efe8dc;
-  --popover: #1c1814;
-  --popover-foreground: #efe8dc;
-  --primary: #efe8dc;
-  --primary-foreground: #14110e;
-  --secondary: #2a241e;
-  --secondary-foreground: #efe8dc;
-  --muted: #2a241e;
-  --muted-foreground: #a89e90;
-  --accent: #2a241e;
-  --accent-foreground: #efe8dc;
+  --background: #1a1917;
+  --foreground: #fff7f0;
+  --card: #22211f;
+  --card-foreground: #fff7f0;
+  --popover: #22211f;
+  --popover-foreground: #fff7f0;
+  --primary: #fff7f0;
+  --primary-foreground: #1a1917;
+  --secondary: #2c2b28;
+  --secondary-foreground: #fff7f0;
+  --muted: #2c2b28;
+  --muted-foreground: #8c8884;
+  --accent: #2c2b28;
+  --accent-foreground: #fff7f0;
   --destructive: #e07a6a;
-  --border: #efe8dc1a;
-  --input: #efe8dc26;
-  --ring: #8a7f72;
-  --scrollbar-thumb: #2a241e;
-  --selection: #c47a3a;
-  --selection-foreground: #efe8dc;
+  --border: #fff7f01a;
+  --input: #fff7f026;
+  --ring: #8c8884;
+  --scrollbar-thumb: #2c2b28;
+  --selection: #fff7f0;
+  --selection-foreground: #1a1917;
   color-scheme: dark;
 }
 
@@ -131,6 +131,7 @@
       var(--background)
     );
     --timeline-halo: color-mix(in oklch, var(--foreground) 28%, transparent);
+    --mark-underline: var(--foreground-decoration);
   }
 }
 
@@ -156,6 +157,7 @@
   --timeline-line: color-mix(in srgb, var(--foreground) 12%, var(--background));
   --timeline-dot: color-mix(in srgb, var(--foreground) 27.5%, var(--background));
   --timeline-halo: color-mix(in srgb, var(--foreground) 28%, transparent);
+  --mark-underline: var(--foreground-decoration);
 }
 
 @layer base {
@@ -183,6 +185,11 @@
     font-weight: inherit;
   }
 
+  h1,
+  h2 {
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+  }
+
   ::selection {
     background-color: var(--selection);
     color: var(--selection-foreground);
@@ -203,6 +210,10 @@
 }
 
 @layer utilities {
+  .font-heading {
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+  }
+
   .squircle {
     corner-shape: squircle;
   }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -21,7 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className={cn("dark h-full", GeistSans.variable, jetbrainsMono.variable)}
+      className={cn(
+        "dark h-full",
+        GeistSans.variable,
+        GeistMono.variable,
+        jetbrainsMono.variable,
+      )}
       suppressHydrationWarning
     >
       <body>{children}</body>

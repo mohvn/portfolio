@@ -102,7 +102,7 @@ export function Hero({
       <div className="flex flex-row items-center justify-between">
         <div>
           <h1 className="font-medium">{portfolio.name}</h1>
-          <p className="mt-1 text-muted-foreground">{portfolio.role}</p>
+          <p className="mt-1 font-heading text-muted-foreground">{portfolio.role}</p>
         </div>
         <nav aria-label="Social links">
           <ul className="flex flex-wrap items-center gap-px">
@@ -169,18 +169,6 @@ export function Hero({
       </div>
 
       <div className="relative mt-5.5 flex flex-wrap gap-2">
-        <Button
-          size="sm"
-          render={
-            <a
-              href={`mailto:${contact.email}`}
-              aria-label={ui.bookCall}
-            />
-          }
-          className="squircle h-8"
-        >
-          {ui.bookCall}
-        </Button>
         <Button
           variant="outline"
           size="sm"

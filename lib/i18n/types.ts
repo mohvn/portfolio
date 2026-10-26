@@ -10,7 +10,6 @@ export type LocaleCopy = {
     viewProject: string;
     seeMore: string;
     seeLess: string;
-    bookCall: string;
     messageOn: string;
     lastYear: string;
     expandJob: string;

@@ -13,7 +13,6 @@ export const ptBR: LocaleCopy = {
     viewProject: "Abrir",
     seeMore: "Ver mais",
     seeLess: "Ver menos",
-    bookCall: "Mandar um email",
     messageOn: "Mensagem no",
     lastYear: "no último ano",
     expandJob: "Expandir detalhes de {company}",
@@ -50,8 +49,8 @@ export const ptBR: LocaleCopy = {
     greeting: "Mohan Elias",
     tagline: "Desenvolvedor frontend",
     paragraphs: [
-      "Mohan. Frontend em São Paulo, na [[empreender]]. Faço apps que lojista brasileiro utiliza de verdade: rastreio, checkout, avaliações, e ainda pego uns freelances.",
-      "Obcecado por interfaces que não pareçam IA. E pra falar a verdade, a maior parte do meu trabalho é decidir **o que não entra** na tela.",
+      "Mohan. Frontend em São Paulo, na [[empreender]]. Nela eu faço apps que a maioria dos lojistas brasileiros utilizam: rastreio, checkout, avaliações, e ainda pego uns freelances.",
+      "Obcecado por interfaces modernas e minimalistas que falam direto com o usuário.",
     ],
     closing: [],
     projects: {

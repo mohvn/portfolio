@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import type { GithubContributions } from "@/lib/github-contributions";
 import type { Locale } from "@/lib/i18n/config";
 import type { Portfolio } from "@/lib/i18n";
@@ -10,9 +11,13 @@ import { PerformanceSection } from "@/components/portfolio/performance-section";
 import { WorkSection } from "@/components/portfolio/work-section";
 import { SkillsSection } from "@/components/portfolio/skills-section";
 import { BuiltSection } from "@/components/portfolio/built-section";
-import { FooterSection } from "@/components/portfolio/footer-section";
 import { LocaleSwitch } from "@/components/portfolio/locale-switch";
 import { initUiSound } from "@/lib/ui-sound";
+
+const FooterSection = dynamic(
+  () => import("@/components/portfolio/footer-section"),
+  { ssr: false },
+);
 
 const FADE_MS = 180;
 
@@ -34,6 +39,14 @@ export function PortfolioPage({
 
   useEffect(() => {
     initUiSound();
+    import("@/lib/ascii-sharks/engine")
+      .then(() => {
+        (window as Window & { __oceanLoad?: string }).__oceanLoad = "ok";
+      })
+      .catch((error) => {
+        (window as Window & { __oceanLoad?: string }).__oceanLoad =
+          error instanceof Error ? (error.stack ?? error.message) : String(error);
+      });
   }, []);
 
   useEffect(() => {
@@ -79,10 +92,8 @@ export function PortfolioPage({
         <WorkSection portfolio={portfolio} locale={locale} />
         <SkillsSection portfolio={portfolio} />
         <BuiltSection portfolio={portfolio} />
-        <div className="mt-auto">
-          <FooterSection />
-        </div>
       </main>
+      <FooterSection />
     </div>
   );
 }

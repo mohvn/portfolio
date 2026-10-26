@@ -18,55 +18,46 @@ export const projectsShared = [
     id: "py013",
     href: "https://www.py013.com.br",
     status: "live" as const,
-    icon: "users",
   },
   {
     id: "rastreio",
     href: "https://get.rastreio.net",
-    status: "building" as const,
-    icon: "package",
+    status: "live" as const,
   },
   {
     id: "area-do-cliente",
-    href: "https://app.areadocliente.com.br/inicio",
+    href: "https://areadocliente.com.br",
     status: "live" as const,
-    icon: "layout-dashboard",
   },
   {
     id: "ovni",
-    href: "https://app.ovni.com.br",
+    href: "https://ovni.com.br",
     status: "live" as const,
-    icon: "sparkles",
   },
   {
     id: "sttp",
     href: "https://mohvn.github.io/sttp",
     status: "live" as const,
-    icon: "search",
   },
   {
     id: "caddie",
     href: "https://www.caddieestrategia.com.br",
     status: "live" as const,
-    icon: "briefcase",
   },
   {
     id: "abelha",
     href: "https://www.sistema-abelha.com.br",
     status: "live" as const,
-    icon: "table",
   },
   {
     id: "sds",
     href: "#",
     status: "live" as const,
-    icon: "book-open",
   },
   {
     id: "lojao-do-bras",
     href: "#",
     status: "private" as const,
-    icon: "utensils",
   },
 ] as const;
 

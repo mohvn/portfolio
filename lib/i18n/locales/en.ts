@@ -4,7 +4,7 @@ export const en: LocaleCopy = {
   meta: {
     title: "Mohan Elias – Frontend developer",
     description:
-      "Mohan. Frontend in São Paulo, at Empreender. Apps Brazilian shopkeepers actually use — and interfaces that don't look like AI.",
+      "Mohan. Frontend in São Paulo, at Empreender. Apps Brazilian shopkeepers actually use — and modern, minimalist interfaces that speak directly to the user.",
   },
   ui: {
     localeSwitch: "Language",
@@ -13,7 +13,6 @@ export const en: LocaleCopy = {
     viewProject: "Open",
     seeMore: "See more",
     seeLess: "See less",
-    bookCall: "Send an email",
     messageOn: "Message on",
     lastYear: "last year",
     expandJob: "Expand details for {company}",
@@ -50,8 +49,8 @@ export const en: LocaleCopy = {
     greeting: "Mohan Elias",
     tagline: "Frontend developer",
     paragraphs: [
-      "Mohan. Frontend in São Paulo, at [[empreender]]. I make apps Brazilian shopkeepers actually use: tracking, checkout, reviews, and I still take on freelance.",
-      "Obsessed with interfaces that don't look like AI. And honestly, most of my work is deciding **what doesn't make it** onto the screen.",
+      "Mohan. Frontend in São Paulo, at [[empreender]]. That's where I make apps that most Brazilian shopkeepers use: tracking, checkout, reviews, and I still take on freelance.",
+      "Obsessed with modern, minimalist interfaces that speak directly to the user.",
     ],
     closing: [],
     projects: {
