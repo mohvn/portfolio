@@ -4,7 +4,7 @@ export const portfolioBase = {
   name: "Mohan Elias",
   slug: "mohvn",
   repo: "mohvn/portfolio",
-  avatar: withBasePath("/images/avatar.png"),
+  avatar: withBasePath("/images/avatar.jpg"),
   website: "https://mohvn.github.io",
   contact: {
     email: "mohvn@proton.me",

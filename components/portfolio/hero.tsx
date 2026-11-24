@@ -1,36 +1,10 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState } from "react";
 import type { Portfolio } from "@/lib/i18n";
-import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react";
 import { withBasePath } from "@/lib/base-path";
-
-function GitHubIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden
-      className={className}
-    >
-      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-    </svg>
-  );
-}
-
-function LinkedInIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden
-      className={className}
-    >
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-    </svg>
-  );
-}
+import { ChessOverlay } from "./chess/chess-overlay";
+import { ChessPieceIcon } from "./chess/chess-piece-icon";
 
 const companies: Record<
   string,
@@ -43,12 +17,63 @@ const companies: Record<
   },
 };
 
-function RichText({ text }: { text: string }) {
-  const parts = text.split(/(\*\*[^*]+\*\*|\[\[[^\]]+\]\])/g);
+const techIcons: Record<string, { label: string; src: string }> = {
+  typescript: {
+    label: "TypeScript",
+    src: withBasePath("/icons/typescript.svg"),
+  },
+};
+
+function RichText({
+  text,
+  onChessClick,
+  chessLabel,
+}: {
+  text: string;
+  onChessClick?: () => void;
+  chessLabel?: string;
+}) {
+  const parts = text.split(/(\*\*[^*]+\*\*|\[\[[^\]]+\]\]|\{\{[^}]+\}\})/g);
 
   return (
     <>
       {parts.map((part, index) => {
+        if (part.startsWith("{{") && part.endsWith("}}")) {
+          const id = part.slice(2, -2);
+
+          if (id === "chess") {
+            return (
+              <button
+                key={index}
+                type="button"
+                onClick={onChessClick}
+                aria-label={chessLabel}
+                title={chessLabel}
+                className="ml-[0.2em] inline-block h-[1.4em] w-[1.4em] align-[-0.28em] transition-opacity hover:opacity-75"
+              >
+                <ChessPieceIcon className="size-full drop-shadow-sm" />
+              </button>
+            );
+          }
+
+          const icon = techIcons[id];
+          if (!icon) return <span key={index}>{part}</span>;
+          return (
+            <span key={index} className="whitespace-nowrap">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={icon.src}
+                alt=""
+                aria-hidden
+                width={16}
+                height={16}
+                className="mr-1 inline-block h-[0.875em] w-auto align-[-0.12em] object-contain"
+              />
+              {icon.label}
+            </span>
+          );
+        }
+
         if (part.startsWith("[[") && part.endsWith("]]")) {
           const id = part.slice(2, -2);
           const company = companies[id];
@@ -60,7 +85,7 @@ function RichText({ text }: { text: string }) {
               target="_blank"
               rel="noreferrer"
               aria-label={company.name}
-              className="inline-block align-baseline text-current transition-opacity hover:opacity-80"
+              className="inline-block align-baseline text-current no-underline transition-opacity hover:opacity-80"
             >
               <span
                 aria-hidden
@@ -88,104 +113,83 @@ function RichText({ text }: { text: string }) {
   );
 }
 
-export function Hero({
-  portfolio,
-  actions,
+function SocialLink({
+  href,
+  children,
 }: {
-  portfolio: Portfolio;
-  actions?: ReactNode;
+  href: string;
+  children: string;
 }) {
-  const { contact, ui } = portfolio;
+  const external = href.startsWith("http");
+  return (
+    <a
+      href={href}
+      {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+      className="text-foreground-secondary underline decoration-foreground-decoration transition-colors hover:text-foreground hover:decoration-foreground-decoration-hover"
+    >
+      {children}
+    </a>
+  );
+}
+
+export function Hero({ portfolio }: { portfolio: Portfolio }) {
+  const { contact, ui, avatar } = portfolio;
+  const [chessOpen, setChessOpen] = useState(false);
+  const [chessSession, setChessSession] = useState(0);
+
+  function openChess() {
+    setChessSession((session) => session + 1);
+    setChessOpen(true);
+  }
 
   return (
-    <section aria-label="Hero" className="flex flex-col">
-      <div className="flex flex-row items-center justify-between">
-        <div>
-          <h1 className="font-medium">{portfolio.name}</h1>
-          <p className="mt-1 font-heading text-muted-foreground">{portfolio.role}</p>
+    <section aria-label="Hero" className="relative z-10 flex flex-col gap-6">
+      <div className="flex items-center gap-3.5">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={avatar}
+          alt=""
+          width={44}
+          height={44}
+          className="size-11 rounded-full object-cover"
+        />
+        <div className="min-w-0">
+          <h1 className="text-base font-medium tracking-tight">
+            {portfolio.name}
+          </h1>
+          <p className="text-sm text-muted-foreground">{portfolio.role}</p>
         </div>
-        <nav aria-label="Social links">
-          <ul className="flex flex-wrap items-center gap-px">
-            <li>
-              <Button
-                variant="ghost"
-                size="icon-sm"
-                render={
-                  <a
-                    href={contact.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="GitHub"
-                  />
-                }
-                className="squircle size-7 rounded-[min(var(--radius-md),12px)] text-foreground-secondary hover:text-foreground"
-              >
-                <GitHubIcon className="size-4" />
-              </Button>
-            </li>
-            <li>
-              <Button
-                variant="ghost"
-                size="icon-sm"
-                render={
-                  <a
-                    href={contact.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="LinkedIn"
-                  />
-                }
-                className="squircle size-7 rounded-[min(var(--radius-md),12px)] text-foreground-secondary hover:text-foreground"
-              >
-                <LinkedInIcon className="size-4" />
-              </Button>
-            </li>
-            <li>
-              <Button
-                variant="ghost"
-                size="icon-sm"
-                render={
-                  <a
-                    href={`mailto:${contact.email}`}
-                    aria-label="Email"
-                  />
-                }
-                className="squircle size-7 rounded-[min(var(--radius-md),12px)] text-foreground-secondary hover:text-foreground"
-              >
-                <Mail className="size-4" />
-              </Button>
-            </li>
-            {actions ? <li className="ml-1 flex items-center gap-px">{actions}</li> : null}
-          </ul>
-        </nav>
       </div>
 
-      <div className="mt-6 space-y-2.5 text-foreground-secondary">
+      <div className="space-y-3 text-base leading-7 text-foreground-secondary">
         {portfolio.paragraphs.map((paragraph) => (
           <p key={paragraph}>
-            <RichText text={paragraph} />
+            <RichText
+              text={paragraph}
+              onChessClick={openChess}
+              chessLabel={ui.chess.openLabel}
+            />
           </p>
         ))}
+        <p>
+          {ui.reach.before}{" "}
+          <SocialLink href={contact.github}>{ui.footer.github}</SocialLink>
+          {ui.reach.sep}
+          <SocialLink href={contact.linkedin}>{ui.footer.linkedin}</SocialLink>
+          {ui.reach.and}{" "}
+          <SocialLink href={`mailto:${contact.email}`}>
+            {ui.footer.email}
+          </SocialLink>
+          {ui.reach.after}
+        </p>
       </div>
 
-      <div className="relative mt-5.5 flex flex-wrap gap-2">
-        <Button
-          variant="outline"
-          size="sm"
-          render={
-            <a
-              href={contact.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${ui.messageOn} LinkedIn`}
-            />
-          }
-          className="squircle h-8 gap-1.5 [&_svg]:mx-0"
-        >
-          {ui.messageOn}
-          <LinkedInIcon className="size-[0.78rem]" />
-        </Button>
-      </div>
+      <ChessOverlay
+        open={chessOpen}
+        onOpenChange={setChessOpen}
+        session={chessSession}
+        copy={ui.chess}
+      />
     </section>
   );
 }

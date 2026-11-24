@@ -35,12 +35,38 @@ export const ptBR: LocaleCopy = {
       workflow: "Workflow",
       design: "Design",
     },
+    reach: {
+      before: "Me encontra no",
+      sep: ", ",
+      and: " e",
+      after: ".",
+    },
     footer: {
       note: "Se você chegou até aqui, pode mandar um oi.",
       github: "GitHub",
       linkedin: "LinkedIn",
       email: "Email",
       copyright: "© {year} Mohan Elias",
+    },
+    chess: {
+      title: "Xadrez",
+      you: "Você",
+      computer: "Computador",
+      yourTurn: "Sua vez",
+      thinking: "Pensando…",
+      check: "Xeque!",
+      checkmateWin: "Xeque-mate",
+      checkmateLose: "Xeque-mate",
+      stalemate: "Afogamento",
+      draw: "Partida empatada",
+      newGame: "Nova partida",
+      hint: "Você joga de brancas contra o computador.",
+      openLabel: "Abrir xadrez",
+      close: "Fechar",
+      resultWin: "Você venceu",
+      resultLose: "Computador venceu",
+      resultDraw: "Empate",
+      noMoves: "Nenhum lance registrado.",
     },
   },
   copy: {
@@ -49,8 +75,8 @@ export const ptBR: LocaleCopy = {
     greeting: "Mohan Elias",
     tagline: "Desenvolvedor frontend",
     paragraphs: [
-      "Mohan. Frontend em São Paulo, na [[empreender]]. Nela eu faço apps que a maioria dos lojistas brasileiros utilizam: rastreio, checkout, avaliações, e ainda pego uns freelances.",
-      "Obcecado por interfaces modernas e minimalistas que falam direto com o usuário.",
+      "Eu crio aplicações em {{typescript}} na [[empreender]]. Nela eu faço ferramentas que a maioria dos lojistas brasileiros utiliza, desde o rastreio, checkout, área do cliente, e alguns freelances.",
+      "Curiosidade é a chave. {{chess}}",
     ],
     closing: [],
     projects: {
@@ -60,7 +86,7 @@ export const ptBR: LocaleCopy = {
       },
       rastreio: {
         title: "Rastreio.net",
-        description: "Gestão de rastreio pra times de ecommerce.",
+        description: "Gestão de Rastreio para Lojas de Ecommerce",
       },
       "area-do-cliente": {
         title: "Área do Cliente",

@@ -35,12 +35,38 @@ export const en: LocaleCopy = {
       workflow: "Workflow",
       design: "Design",
     },
+    reach: {
+      before: "You can reach me on",
+      sep: ", ",
+      and: " and",
+      after: ".",
+    },
     footer: {
       note: "If you made it this far, you might as well say hi.",
       github: "GitHub",
       linkedin: "LinkedIn",
       email: "Email",
       copyright: "© {year} Mohan Elias",
+    },
+    chess: {
+      title: "Chess",
+      you: "You",
+      computer: "Computer",
+      yourTurn: "Your turn",
+      thinking: "Thinking…",
+      check: "Check!",
+      checkmateWin: "Checkmate",
+      checkmateLose: "Checkmate",
+      stalemate: "Stalemate",
+      draw: "Drawn game",
+      newGame: "New game",
+      hint: "You play white against the computer.",
+      openLabel: "Open chess",
+      close: "Close",
+      resultWin: "You win",
+      resultLose: "Computer wins",
+      resultDraw: "Draw",
+      noMoves: "No moves recorded.",
     },
   },
   copy: {
@@ -49,8 +75,8 @@ export const en: LocaleCopy = {
     greeting: "Mohan Elias",
     tagline: "Frontend developer",
     paragraphs: [
-      "Mohan. Frontend in São Paulo, at [[empreender]]. That's where I make apps that most Brazilian shopkeepers use: tracking, checkout, reviews, and I still take on freelance.",
-      "Obsessed with modern, minimalist interfaces that speak directly to the user.",
+      "I build applications in {{typescript}} at [[empreender]]. That's where I make tools that most Brazilian shopkeepers use, from tracking, checkout, customer area, and some freelances.",
+      "Curiosity is the key. {{chess}}",
     ],
     closing: [],
     projects: {
@@ -60,7 +86,7 @@ export const en: LocaleCopy = {
       },
       rastreio: {
         title: "Rastreio.net",
-        description: "Shipment tracking management for ecommerce teams.",
+        description: "Shipment Tracking Management for Ecommerce Stores",
       },
       "area-do-cliente": {
         title: "Área do Cliente",

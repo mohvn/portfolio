@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PortfolioPage } from "@/components/portfolio/portfolio-page";
-import { getGithubContributions } from "@/lib/github-contributions";
 import { getPortfolio } from "@/lib/i18n";
 import { isValidLocale, locales, type Locale } from "@/lib/i18n/config";
-import { portfolioBase } from "@/lib/portfolio-shared";
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "pt-BR" }];
@@ -44,13 +42,7 @@ export default async function Home({
     locales.map((item) => [item, getPortfolio(item)]),
   ) as Record<Locale, ReturnType<typeof getPortfolio>>;
 
-  const contributions = await getGithubContributions(portfolioBase.slug);
-
   return (
-    <PortfolioPage
-      locale={locale as Locale}
-      portfolios={portfolios}
-      contributions={contributions}
-    />
+    <PortfolioPage locale={locale as Locale} portfolios={portfolios} />
   );
 }

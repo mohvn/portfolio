@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
@@ -55,40 +55,69 @@
   --radius-mark: var(--mark-radius);
   --radius-cell: var(--cell-radius);
 
-  --container-page: 43.75rem;
+  --container-page: 42rem;
   --spacing-section: var(--section-gap);
 }
 
 :root {
-  --section-gap: 2.5rem;
-  --footer-signature-opacity: 0.023;
-  --footer-signature-clip: 0.06;
+  --section-gap: 3rem;
   --corner-scale: 1;
   --radius: calc(0.625rem * var(--corner-scale));
   --mark-radius: calc(50% * var(--corner-scale));
   --cell-radius: calc(30% * var(--corner-scale));
 
-  --background: #1a1917;
-  --foreground: #fff7f0;
-  --card: #22211f;
-  --card-foreground: #fff7f0;
-  --popover: #22211f;
-  --popover-foreground: #fff7f0;
-  --primary: #fff7f0;
-  --primary-foreground: #1a1917;
-  --secondary: #2c2b28;
-  --secondary-foreground: #fff7f0;
-  --muted: #2c2b28;
-  --muted-foreground: #8c8884;
-  --accent: #2c2b28;
-  --accent-foreground: #fff7f0;
-  --destructive: #e07a6a;
-  --border: #fff7f01a;
-  --input: #fff7f026;
-  --ring: #8c8884;
-  --scrollbar-thumb: #2c2b28;
-  --selection: #fff7f0;
-  --selection-foreground: #1a1917;
+  --background: #ffffff;
+  --foreground: #171717;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+  --primary: #171717;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #171717;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f5;
+  --accent-foreground: #171717;
+  --destructive: #ef4444;
+  --border: #17171714;
+  --input: #1717171f;
+  --ring: #a1a1aa;
+  --scrollbar-thumb: #d4d4d8;
+  --selection: #171717;
+  --selection-foreground: #ffffff;
+  color-scheme: light;
+}
+
+/*
+  Unlayered (same as :root). Must come AFTER :root so it wins when .dark is present.
+  Do not put these in @layer base — unlayered :root would beat them.
+*/
+html.dark,
+:root.dark,
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --card: #111111;
+  --card-foreground: #ffffff;
+  --popover: #111111;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #0a0a0a;
+  --secondary: #171717;
+  --secondary-foreground: #ffffff;
+  --muted: #171717;
+  --muted-foreground: #a1a1aa;
+  --accent: #171717;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --border: #ffffff14;
+  --input: #ffffff1f;
+  --ring: #a1a1aa;
+  --scrollbar-thumb: #262626;
+  --selection: #ffffff;
+  --selection-foreground: #0a0a0a;
   color-scheme: dark;
 }
 
@@ -96,13 +125,13 @@
   :root {
     --foreground-secondary: color-mix(
       in oklch,
-      var(--foreground) 75%,
+      var(--foreground) 72%,
       var(--background)
     );
     --foreground-tertiary: var(--muted-foreground);
     --foreground-quaternary: color-mix(
       in oklch,
-      var(--foreground) 30%,
+      var(--foreground) 36%,
       var(--background)
     );
     --foreground-decoration: color-mix(
@@ -138,13 +167,13 @@
 :root {
   --foreground-secondary: color-mix(
     in srgb,
-    var(--foreground) 75%,
+    var(--foreground) 72%,
     var(--background)
   );
   --foreground-tertiary: var(--muted-foreground);
   --foreground-quaternary: color-mix(
     in srgb,
-    var(--foreground) 30%,
+    var(--foreground) 36%,
     var(--background)
   );
   --foreground-decoration: color-mix(in srgb, var(--foreground) 28%, transparent);
@@ -172,7 +201,6 @@
 
   body {
     @apply min-h-full bg-background font-sans text-foreground;
-    background-image: none;
   }
 
   h1,
@@ -181,13 +209,9 @@
   h4,
   h5,
   h6 {
+    font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
-  }
-
-  h1,
-  h2 {
-    font-family: var(--font-geist-mono), ui-monospace, monospace;
   }
 
   ::selection {
@@ -207,34 +231,49 @@
     background: var(--scrollbar-thumb);
     border-radius: 5px;
   }
+
+  a {
+    @apply underline-offset-2;
+  }
+}
+
+:root {
+  --sky-hero: 240px;
+  --sky-faint: 280px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --sky-hero: 360px;
+    --sky-faint: 400px;
+  }
 }
 
 @layer utilities {
-  .font-heading {
-    font-family: var(--font-geist-mono), ui-monospace, monospace;
+  .ascii-sky {
+    height: 692px;
   }
 
-  .squircle {
-    corner-shape: squircle;
-  }
-
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-
-  .scroll-fade-x {
+  .ascii-sky-frame {
     mask-image: linear-gradient(
-      to right,
-      transparent 0,
-      #000 var(--scroll-fade-s, 0px),
-      #000 calc(100% - var(--scroll-fade-e, 0px)),
-      transparent 100%
+      to bottom,
+      #000 calc(var(--sky-hero) - 60px),
+      rgb(0 0 0 / 0.13) var(--sky-faint),
+      rgb(0 0 0 / 0.065) calc(var(--sky-hero) + 300px),
+      transparent
     );
+  }
+
+  .ascii-sky-still {
+    background-position: center top;
+    background-repeat: repeat-x;
+    background-size: 2400px 692px;
+    image-rendering: pixelated;
+    opacity: 0.45;
+  }
+
+  .site-shell {
+    padding-top: calc(var(--sky-hero) + 2.5rem);
   }
 
   .gap-section {
@@ -249,20 +288,46 @@
     text-decoration-color: var(--foreground-decoration-hover);
   }
 
-  .timeline-status-halo {
-    background: radial-gradient(circle, var(--timeline-halo) 0%, transparent 80%);
-    animation: timeline-halo 2.4s ease-in-out infinite;
+  .chess-board {
+    --chess-light: #efeee9;
+    --chess-dark: #b0aea4;
+    --chess-last: color-mix(in oklab, #c5a35a 42%, var(--chess-light));
+    --chess-selected: color-mix(in oklab, #c5a35a 55%, var(--chess-light));
+  }
+
+  html.dark .chess-board {
+    --chess-light: #4a4a4a;
+    --chess-dark: #2f2f2f;
+    --chess-last: color-mix(in oklab, #c5a35a 28%, var(--chess-dark));
+    --chess-selected: color-mix(in oklab, #c5a35a 38%, var(--chess-dark));
+  }
+
+  html.dark .chess-board img[data-piece="b"] {
+    filter: brightness(1.45) contrast(1.05);
+  }
+
+  .chess-square-light {
+    background-color: var(--chess-light);
+  }
+
+  .chess-square-dark {
+    background-color: var(--chess-dark);
+  }
+
+  .chess-square-last {
+    background-color: var(--chess-last);
+  }
+
+  .chess-square-selected {
+    background-color: var(--chess-selected);
+  }
+
+  .chess-square:hover:not(:disabled) {
+    filter: brightness(0.97);
+  }
+
+  html.dark .chess-square:hover:not(:disabled) {
+    filter: brightness(1.08);
   }
 }
 
-@keyframes timeline-halo {
-  0%,
-  100% {
-    opacity: 0.55;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.35);
-  }
-}

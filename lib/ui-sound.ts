@@ -11,5 +11,9 @@ export function initUiSound() {
 
 export function playUiSound(name: SoundName = "toggle") {
   if (typeof window === "undefined") return;
-  play(name);
+  try {
+    play(name);
+  } catch {
+    // ignore audio failures (unsupported name / blocked autoplay)
+  }
 }

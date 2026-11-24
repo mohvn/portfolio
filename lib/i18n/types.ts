@@ -32,12 +32,38 @@ export type LocaleCopy = {
       workflow: string;
       design: string;
     };
+    reach: {
+      before: string;
+      sep: string;
+      and: string;
+      after: string;
+    };
     footer: {
       note: string;
       github: string;
       linkedin: string;
       email: string;
       copyright: string;
+    };
+    chess: {
+      title: string;
+      you: string;
+      computer: string;
+      yourTurn: string;
+      thinking: string;
+      check: string;
+      checkmateWin: string;
+      checkmateLose: string;
+      stalemate: string;
+      draw: string;
+      newGame: string;
+      hint: string;
+      openLabel: string;
+      close: string;
+      resultWin: string;
+      resultLose: string;
+      resultDraw: string;
+      noMoves: string;
     };
   };
   copy: {

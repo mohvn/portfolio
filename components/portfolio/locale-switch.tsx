@@ -1,12 +1,12 @@
 "use client";
 
 import type { Locale } from "@/lib/i18n/config";
-import { Button } from "@/components/ui/button";
 import { playUiSound } from "@/lib/ui-sound";
+import { cn } from "@/lib/utils";
 
 const labels: Record<Locale, string> = {
-  en: "EN",
-  "pt-BR": "BR",
+  en: "en",
+  "pt-BR": "pt",
 };
 
 export function LocaleSwitch({
@@ -24,15 +24,15 @@ export function LocaleSwitch({
   }
 
   return (
-    <Button
+    <button
       type="button"
-      variant="ghost"
-      size="icon-sm"
       onClick={handleSwitch}
       aria-label={`Switch language to ${labels[next]}`}
-      className="squircle size-7 rounded-[min(var(--radius-md),12px)] font-mono text-[10px] font-medium text-foreground-secondary hover:text-foreground"
+      className={cn(
+        "text-sm text-muted-foreground transition-colors hover:text-foreground",
+      )}
     >
-      {labels[locale]}
-    </Button>
+      {labels[next]}
+    </button>
   );
 }
