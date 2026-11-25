@@ -264,14 +264,6 @@ html.dark,
     );
   }
 
-  .ascii-sky-still {
-    background-position: center top;
-    background-repeat: repeat-x;
-    background-size: 2400px 692px;
-    image-rendering: pixelated;
-    opacity: 0.45;
-  }
-
   .site-shell {
     padding-top: calc(var(--sky-hero) + 2.5rem);
   }

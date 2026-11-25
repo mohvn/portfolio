@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath,
   assetPrefix: basePath,
+  transpilePackages: ["ascii-sky"],
   images: {
     unoptimized: true,
     remotePatterns: [
