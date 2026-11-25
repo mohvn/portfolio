@@ -159,40 +159,6 @@ export function ChessBoard({
     onNewGame?.();
   }
 
-  function previewWin() {
-    setResult({
-      kind: "win",
-      score: "1-0",
-      reason: copy.checkmateWin,
-      moves: [
-        "e4",
-        "e5",
-        "Qh5",
-        "Nc6",
-        "Bc4",
-        "Nf6",
-        "Qxf7#",
-        "d4",
-        "Nf6",
-        "c4",
-        "e6",
-        "Nc3",
-        "Bb4",
-        "Qc2",
-        "O-O",
-        "a3",
-        "Bxc3+",
-        "Qxc3",
-        "d5",
-        "Bg5",
-        "h6",
-        "Bxf6",
-        "Qxf6",
-      ],
-    });
-    setResultOpen(true);
-  }
-
   function onSquareClick(square: Square) {
     if (game.isGameOver() || game.turn() !== "w" || pending) return;
 
@@ -251,24 +217,13 @@ export function ChessBoard({
               {thinking ? copy.thinking : "—"}
             </p>
           </div>
-          <div className="flex shrink-0 items-center gap-3">
-            {process.env.NODE_ENV === "development" ? (
-              <button
-                type="button"
-                onClick={previewWin}
-                className="text-sm text-muted-foreground underline decoration-foreground-decoration transition-colors hover:text-foreground hover:decoration-foreground-decoration-hover"
-              >
-                Preview win
-              </button>
-            ) : null}
-            <button
-              type="button"
-              onClick={reset}
-              className="text-sm text-foreground-secondary underline decoration-foreground-decoration transition-colors hover:text-foreground hover:decoration-foreground-decoration-hover"
-            >
-              {copy.newGame}
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={reset}
+            className="shrink-0 text-sm text-foreground-secondary underline decoration-foreground-decoration transition-colors hover:text-foreground hover:decoration-foreground-decoration-hover"
+          >
+            {copy.newGame}
+          </button>
         </div>
 
         <div
